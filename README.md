@@ -2,7 +2,9 @@
 
 Auditable multimodal pathogen selection from mNGS and clinical evidence in lower respiratory tract
 infection (KMUH, TVGH, TSGH). Pipeline code lives in `../Multimodal-Diagnosis-Model`; this folder is
-the paper only.
+the paper only. Sources: https://github.com/ythuang0522/aetia-paper (private). Compiled PDF, supplementary
+and figure previews: https://claude.ai/artifact/PB2BPxhvChugJsDavnGsKf (private artifact; re-upload the PDFs
+there after each build that should be shared).
 
 ## Layout
 
