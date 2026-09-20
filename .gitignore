@@ -26,3 +26,6 @@ __pycache__/
 
 # GNN training sources (kept locally, deposited separately)
 GNN source/
+
+# Hub page build (published to the claude.ai artifact, not tracked)
+hub-build/
