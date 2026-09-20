@@ -1,0 +1,118 @@
+% ------------------------------------------------------------------
+%  AETIA -- multimodal pathogen selection from mNGS and clinical evidence
+%  Manuscript draft.  Build:  latexmk -pdf main.tex   (or `make` in this folder)
+% ------------------------------------------------------------------
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{lineno}
+\usepackage[super,sort&compress,numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+\bibliographystyle{naturemag}
+\setcitestyle{super,open={},close={}}
+
+% ---------- names / editorial macros ----------
+\newcommand{\toolname}{AETIA\xspace}              % external research-system name (docs/OBER_NAMING.md)
+\newcommand{\toolexpansion}{Agentic Evidence Tracing of Infectious Aetiology\xspace}  % expanded at first use in the abstract and Introduction
+\newcommand{\mngs}{mNGS\xspace}
+\newcommand{\filmarray}{FilmArray\xspace}
+\newcommand{\rfive}{R5\xspace}
+\newcommand{\vtwenty}{v20\xspace}
+\newcommand{\gptsol}{GPT-5.6 Sol\xspace}
+\newcommand{\gptluna}{GPT-5.6 Luna\xspace}
+\newcommand{\gptterra}{GPT-5.6 Terra\xspace}
+\newcommand{\gptastra}{GPT-6 Astra\xspace}
+\newcommand{\kmuh}{KMUH\xspace}
+\newcommand{\tvgh}{TVGH\xspace}
+\newcommand{\tsgh}{TSGH\xspace}
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}}     % items to verify before submission
+
+% Title (Nature style: declarative, no colon, states the advance and its consequence).
+% Alternatives:
+%  (a) Rule-governed, literature-grounded integration of metagenomic and clinical evidence identifies causative pathogens with auditable reasoning
+%  (b) Structured multimodal reasoning turns metagenomic pathogen lists into actionable, traceable diagnoses
+%  (c) Clinically contextualized multi-agent reasoning outperforms direct large-language-model diagnosis on metagenomic data
+\title{Auditable multimodal integration of metagenomic sequencing and clinical evidence identifies causative pathogens in lower respiratory tract infection}
+
+\author{%
+\todo{Yu-Cheng Wu}$^{1}$, \todo{Chun-Ting Chang}$^{1}$, \todo{Yuan-Ting Chung}$^{1}$,\\
+\todo{Yuan-Ting Yeh}$^{1}$, \todo{clinical co-authors, KMUH}$^{2}$, \todo{clinical co-authors, TVGH}$^{3}$,\\
+\todo{clinical co-authors, TSGH}$^{4}$,\\
+Yao-Ting Huang$^{1,\ast}$\\[4pt]
+\small $^{1}$Department of Computer Science and Information Engineering, National Chung Cheng University, Chiayi, Taiwan\\
+\small $^{2}$\todo{Kaohsiung Medical University Hospital, Kaohsiung, Taiwan}\\
+\small $^{3}$\todo{Taipei Veterans General Hospital, Taipei, Taiwan}\\
+\small $^{4}$\todo{Tri-Service General Hospital, Taipei, Taiwan}\\
+\small $^{\ast}$Correspondence: ythuang@cs.ccu.edu.tw}
+\date{}
+
+\begin{document}
+\sloppy
+\onehalfspacing
+\linenumbers
+\maketitle
+
+\begin{abstract}
+Metagenomic next-generation sequencing (\mngs) detects nearly every organism in a respiratory specimen, but most of what it reports is colonizing, contaminating or reactivated rather than causative, and the physician is left to reconcile a long organism list with cultures, multiplex PCR, antigen tests, imaging, blood counts and host status. Here we present \toolname (\toolexpansion), a pipeline that turns this multimodal record into a short, traceable list of causative pathogens. Modality-specific language-model agents extract structured evidence from each test; a deterministic scorer grades every \mngs organism by read burden, within-specimen dominance, control-subtracted rank, specimen alignment and same-organism hospital support, and applies pre-specified guardrails against known colonizers; a language-model safety review flags what the rules did not pick; and a final rule rescues a candidate only when PubMed literature judged against the patient's own site, syndrome and host, or definitive direct evidence, supports it. Selection is frozen before any rationale is written, and every decision carries its rule path and source hashes. On \todo{55} patients with suspected lower respiratory tract infection from three Taiwanese hospitals, \toolname reached a precision of \todo{71.6\%}, recall of \todo{91.4\%} and F1 of \todo{80.3\%} against physician-adjudicated pathogens, compared with F1 of \todo{14.8\%} for the raw \mngs report, \todo{50.0\%} for \filmarray and galactomannan testing and \todo{45.5\%} for culture, and, in an earlier 35-patient intensive-care series, reducing the average number of organisms presented per patient from \todo{5.8} to \todo{2.0}. On \todo{41} patients, the same pipeline exceeded four frontier language models prompted directly with the identical raw data by \todo{14--15} F1 points, mainly through recall (\todo{90.8\%} versus \todo{57--61\%}). \toolname is research software whose output is a reviewed candidate list, not a diagnosis; it shows that structured, literature-grounded integration, rather than end-to-end prompting, is what makes \mngs clinically interpretable.
+\end{abstract}
+
+\section*{Introduction}
+\input{sections/introduction}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{fig1_overview}
+  \caption{\textbf{Overview of \toolname.}
+  \textbf{a}, One patient's record. Seven read-outs are each parsed by a dedicated language-model agent into a fixed schema; glyphs mark the organism classes (bacterium, fungus, virus, yeast) or host context an agent supplies. Agents see neither the reference labels nor each other.
+  \textbf{b}, Deterministic selection. Organisms on the \mngs report (bars, reads; R0--R4, read tier) pass four filters---read burden, within-specimen dominance, control-subtracted rank, and site alignment with same-organism hospital support---that assign a signal tier and a causative level; 33 guardrails demote colonizers and reactivation viruses (crossed glyphs). Levels 1--2 and supported level 3 are picked in a fixed order. A language-model review reads only the unpicked organisms and can flag them (high priority, context needed) but cannot pick.
+  \textbf{c}, Evidence for each carried candidate: A, PubMed articles judged for exact-species, site-matched human evidence and re-judged against the patient (A1 case-fit); B, \mngs strength on an absolute and a relative axis; C, direct non-\mngs evidence graded C0--C3; D, colonization gate (reported, not gating).
+  \textbf{d}, Rule \rfive selects organisms that were picked, meet C3, or meet A1, site alignment and a B axis together. The list is frozen with rule paths and input hashes before a language model writes the rationale; delivery is a summary table with a traceable JSON, Markdown and XLSX package.}
+  \label{fig:overview}
+\end{figure}
+
+\section*{Results}
+\input{sections/results}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig2_benchmark}
+  \caption{\textbf{Pathogen selection compared with the raw \mngs report, \filmarray/galactomannan and culture.}
+  \textbf{a}, Precision against recall for \toolname (blue) and for each read-out taken at face value: all organisms in the \mngs report (triangle), all positive \filmarray or galactomannan targets (square) and all cultured organisms (diamond); dashed curves, constant F1.
+  \textbf{b}, The same comparison as precision, recall and F1. $n=\todo{55}$ patients (\kmuh \todo{30}; \tvgh and \tsgh \todo{25}); unit, (patient, organism) pair at species level; reference standard, physician-adjudicated pathogens (Methods).
+  \textbf{c},\textbf{d}, Earlier intensive-care series (\kmuh, $n=\todo{35}$; first pipeline version): fraction of patients with at least one reported organism (\textbf{c}) and mean organisms per patient (\textbf{d}). \todo{Values transcribed from slides; regenerate from the evaluation output.}}
+  \label{fig:benchmark}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fig3_llm_comparison}
+  \caption{\textbf{Comparison with frontier language models prompted directly on the same data.}
+  \gptsol, \gptluna, \gptterra and \gptastra received the identical de-identified record---raw \mngs list with reads and control codes, cultures, \filmarray, galactomannan, molecular tests, imaging reports, blood counts and diagnoses---with one prompt, a JSON schema and no retrieval or reference labels (Methods; Supplementary Note~\todo{2}).
+  \textbf{a}, Precision against recall; \toolname in blue, models in grey (marker key in panel); dashed curves, constant F1.
+  \textbf{b}, Precision, recall and F1. $n=\todo{41}$ patients (\kmuh \todo{30}; \tvgh and \tsgh \todo{11}); micro-averaged over (patient, organism) pairs; \toolname values from the frozen \rfive decisions on the same patients (TP~\todo{69}, FP~\todo{33}, FN~\todo{7}). \todo{Slide gives 71.62\% precision; TP/FP imply 67.65\%.}}
+  \label{fig:llm}
+\end{figure}
+
+\input{tables/table1_cohort}
+
+\section*{Discussion}
+\input{sections/discussion}
+
+\section*{Methods}
+\input{sections/methods}
+
+\bibliography{references}
+
+\end{document}

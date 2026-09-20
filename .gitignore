@@ -1,0 +1,28 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.run.xml
+*.bcf
+
+# macOS
+.DS_Store
+
+# Scratch
+tmp/
+scratch/
+
+# Python
+__pycache__/
+*.pyc
+
+# GNN training sources (kept locally, deposited separately)
+GNN source/

@@ -1,0 +1,12 @@
+# Every number the figures draw. Provenance: slide = student deck "0914 專題匯報.pdf" (2026-09-15); talk = "20260117_Asia Mirobiome_YTH.pdf" slide 15; validation = Multimodal-Diagnosis-Model/docs/VALIDATION.md.
+# verified = yes only once the value has been recomputed from the frozen evaluation JSON / gold files. Percentages are in percent units.
+experiment,method,n_patients,precision,recall,f1,tp,fp,fn,source,verified,note
+r5_55,AETIA,55,71.6,91.4,80.3,,,,slide 2,no,R5 final decisions; 114 picked + 9 rescued = 123 selected (validation) - reconcile with TP/FP
+r5_55,mNGS report,55,8.0,93.1,14.8,,,,slide 2,no,raw mNGS organism list taken at face value; baseline definition to confirm
+r5_55,FilmArray/GM,55,67.6,39.7,50.0,,,,slide 2,no,FilmArray pneumonia panel + galactomannan positives; baseline definition to confirm
+r5_55,Culture,55,48.1,43.1,45.5,,,,slide 2,no,cultured organisms within window; baseline definition to confirm
+direct_raw_41,AETIA,41,67.65,90.79,77.53,69,33,7,validation + slide 3,no,slide 3 prints 71.62 precision but TP69/FP33 (docs/VALIDATION.md) give 67.65; recall and F1 on the slide match TP/FP/FN
+direct_raw_41,GPT-5.6 Sol,41,67.69,57.89,62.41,,,,slide 3,no,gpt-5.6-sol; reasoning medium; max 4000 output tokens; prompt_v1
+direct_raw_41,GPT-5.6 Luna,41,69.84,57.89,63.31,,,,slide 3,no,gpt-5.6-luna
+direct_raw_41,GPT-5.6 Terra,41,70.49,56.58,62.77,,,,slide 3,no,gpt-5.6-terra
+direct_raw_41,GPT-6 Astra,41,67.65,60.53,63.89,,,,slide 3,no,gpt-6-astra

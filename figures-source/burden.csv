@@ -1,0 +1,7 @@
+# Earlier KMUH ICU series (n = 35) from the 2026-01-17 Asia Microbiome talk, slide 15 (data: Dr. Chang, KMUH).
+# positive_rate = % of patients with >= 1 organism reported by the method; mean_species = mean organisms reported per patient.
+method,n_patients,positive_rate,mean_species,source,verified
+Culture,35,24.2,3.16,talk slide 15,no
+FilmArray,35,63.6,3.00,talk slide 15,no
+mNGS report,35,100.0,5.76,talk slide 15,no
+AETIA,35,100.0,1.97,talk slide 15,no
