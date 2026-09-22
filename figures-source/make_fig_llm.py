@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 3: AETIA against four frontier language models prompted directly on identical raw data.
+"""Figure 4: AETIA against four frontier language models prompted directly on identical raw data.
 
 a, precision-recall plane with iso-F1 curves (41 patients); b, precision, recall and F1 per system;
 c, F1 difference of each model from AETIA. Reads figures-source/metrics.csv (direct_raw_41).

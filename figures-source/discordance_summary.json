@@ -1,0 +1,81 @@
+{
+  "cases": 33,
+  "detections": 104,
+  "causative": 38,
+  "non_causative": 66,
+  "causative_pct": 37,
+  "non_causative_pct": 63,
+  "reference_pathogens": 55,
+  "absent_from_report": 17,
+  "absent_pct": 31,
+  "absent_found_by_conventional": 16,
+  "absent_found_pct": 94,
+  "support_causative_pct": 47,
+  "support_non_causative_pct": 18,
+  "auc_all": 0.611,
+  "median_reads_causative_all": 197.5,
+  "median_reads_non_causative_all": 78.5,
+  "range_reads_causative_all": [
+    3,
+    337309
+  ],
+  "range_reads_non_causative_all": [
+    1,
+    189467
+  ],
+  "auc_non_sterile": 0.731,
+  "median_reads_causative_non_sterile": 5258.5,
+  "median_reads_non_causative_non_sterile": 99.5,
+  "range_reads_causative_non_sterile": [
+    7,
+    337309
+  ],
+  "range_reads_non_causative_non_sterile": [
+    1,
+    189467
+  ],
+  "auc_sterile": 0.557,
+  "median_reads_causative_sterile": 54.0,
+  "median_reads_non_causative_sterile": 27.5,
+  "range_reads_causative_sterile": [
+    3,
+    2010
+  ],
+  "range_reads_non_causative_sterile": [
+    3,
+    18565
+  ],
+  "absent_by_first_readout": {
+    "culture": 8,
+    "PCR": 5,
+    "serology": 1,
+    "antigen": 2,
+    "none": 1
+  },
+  "absent_found_within_2_days": 14,
+  "absent_found_nearest_day_max": 5,
+  "absent_found_different_specimen": 11,
+  "organisms_both_ways": [
+    "acinetobacter nosocomialis",
+    "burkholderia cenocepacia",
+    "candida albicans",
+    "candida tropicalis",
+    "cytomegalovirus",
+    "epstein-barr virus",
+    "herpes simplex virus 1",
+    "klebsiella pneumoniae",
+    "pneumocystis jirovecii",
+    "pseudomonas aeruginosa"
+  ],
+  "organisms_both_ways_n": 10,
+  "detections_both_ways_pct": 47,
+  "absent_found_different_specimen_pct": 69,
+  "absent_found_within_2_days_pct": 88,
+  "sampling": {
+    "cases": 105,
+    "admission_to_mngs_median": 7.0,
+    "admission_to_mngs_q1": 3.0,
+    "admission_to_mngs_q3": 15.0,
+    "mngs_specimens_per_patient": 1.0
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 2: AETIA against conventional read-outs.
+"""Figure 3: AETIA against conventional read-outs.
 
 a, precision-recall plane with iso-F1 curves (55 patients); b, precision, recall and F1 per method;
 c, fraction of patients with >= 1 reported organism and d, organisms per patient (ICU series, n = 35).

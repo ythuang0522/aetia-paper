@@ -54,6 +54,13 @@ DOIS = {
     "turpin2023language": "10.52202/075280-3275",
     "kapoor2023leakage": "10.1016/j.patter.2023.100804",
     "donnelly2020revision": "10.1093/cid/ciz1008",
+    # Methods: sequencing laboratory workflow and conventional assays (added 2026-09-20)
+    "takahashi2026diagnostic": "10.3389/fcimb.2026.1823299",   # Asia Pathogenomics pipeline: AVITI, T2T-CHM13, database, control thresholds (Supp. Methods)
+    "chou2025investigating": "10.3390/biomedicines13010142",    # KMUH BALF mNGS by Asia Pathogenomics: extraction, MGIEasy, DNBSEQ-G50RS; FilmArray at KMUH
+    "hung2021investigating": "10.3389/fphar.2021.747280",       # KMUH ICU: Platelia Aspergillus galactomannan EIA in serum and BAL
+    "bolger2014trimmomatic": "10.1093/bioinformatics/btu170",
+    "schmieder2011quality": "10.1093/bioinformatics/btr026",
+    "nurk2022complete": "10.1126/science.abj6987",
 }
 
 MANUAL = r"""
@@ -65,6 +72,13 @@ MANUAL = r"""
   pages     = {9459--9474},
   year      = {2020},
   note      = {arXiv:2005.11401}
+}
+
+@misc{li2013aligning,
+  author    = {Li, Heng},
+  title     = {Aligning sequence reads, clone sequences and assembly contigs with {BWA-MEM}},
+  year      = {2013},
+  note      = {arXiv:1303.3997}
 }
 
 @inproceedings{kim2024mdagents,

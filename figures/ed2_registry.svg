@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="392" viewBox="0 0 1000 392">
+<rect width="1000" height="392" fill="#ffffff"/>
+<text x="14.00" y="30.00" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#0b0b0b" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">a</text>
+<line x1="262.00" y1="38.00" x2="262.00" y2="296.00" stroke="#e1e0d9" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="262.00" y="313.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">0</text>
+<line x1="314.50" y1="38.00" x2="314.50" y2="296.00" stroke="#e1e0d9" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="314.50" y="313.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">2</text>
+<line x1="367.00" y1="38.00" x2="367.00" y2="296.00" stroke="#e1e0d9" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="367.00" y="313.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">4</text>
+<line x1="419.50" y1="38.00" x2="419.50" y2="296.00" stroke="#e1e0d9" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="419.50" y="313.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">6</text>
+<line x1="472.00" y1="38.00" x2="472.00" y2="296.00" stroke="#e1e0d9" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="472.00" y="313.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">8</text>
+<line x1="262.00" y1="296.00" x2="472.00" y2="296.00" stroke="#c3c2b7" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="367.00" y="331.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52514e" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">Organisms per mNGS report (median)</text>
+<text x="246.00" y="60.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">Specimen compartment</text>
+<text x="246.00" y="75.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">sterile site (n=38) → airway (n=67)</text>
+<line x1="288.25" y1="62.00" x2="393.25" y2="62.00" stroke="#eb6834" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="288.25" cy="62.00" r="5.0" fill="#ffffff" stroke="#eb6834" stroke-width="2.0"/>
+<circle cx="393.25" cy="62.00" r="5.0" fill="#eb6834" stroke="none" stroke-width="0"/>
+<text x="279.25" y="66.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">1</text>
+<text x="402.25" y="66.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#eb6834" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<line x1="28.00" y1="98.00" x2="472.00" y2="98.00" stroke="#e1e0d9" stroke-width="1.0" stroke-linecap="butt"/>
+<text x="246.00" y="117.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">Ward</text>
+<text x="246.00" y="132.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">general ward (n=30) → intensive care (n=75)</text>
+<line x1="288.25" y1="118.00" x2="393.25" y2="118.00" stroke="#6b7280" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="288.25" cy="118.00" r="5.0" fill="#ffffff" stroke="#6b7280" stroke-width="2.0"/>
+<circle cx="393.25" cy="118.00" r="5.0" fill="#6b7280" stroke="none" stroke-width="0"/>
+<text x="279.25" y="122.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">1</text>
+<text x="402.25" y="122.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<circle cx="393.25" cy="134.00" r="5.0" fill="#2a78d6" stroke="none" stroke-width="0"/>
+<text x="404.25" y="138.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#2a78d6" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<text x="246.00" y="169.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">Corticosteroids</text>
+<text x="246.00" y="184.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">no (n=64) → yes (n=40)</text>
+<line x1="340.75" y1="170.00" x2="393.25" y2="170.00" stroke="#6b7280" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="340.75" cy="170.00" r="5.0" fill="#ffffff" stroke="#6b7280" stroke-width="2.0"/>
+<circle cx="393.25" cy="170.00" r="5.0" fill="#6b7280" stroke="none" stroke-width="0"/>
+<text x="331.75" y="174.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">3</text>
+<text x="402.25" y="174.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<line x1="393.25" y1="186.00" x2="406.38" y2="186.00" stroke="#2a78d6" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="393.25" cy="186.00" r="5.0" fill="#ffffff" stroke="#2a78d6" stroke-width="2.0"/>
+<circle cx="406.38" cy="186.00" r="5.0" fill="#2a78d6" stroke="none" stroke-width="0"/>
+<text x="384.25" y="190.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">5</text>
+<text x="415.38" y="190.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#2a78d6" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5.5</text>
+<text x="246.00" y="221.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">ARDS</text>
+<text x="246.00" y="236.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">no (n=55) → yes (n=48)</text>
+<line x1="340.75" y1="222.00" x2="393.25" y2="222.00" stroke="#6b7280" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="340.75" cy="222.00" r="5.0" fill="#ffffff" stroke="#6b7280" stroke-width="2.0"/>
+<circle cx="393.25" cy="222.00" r="5.0" fill="#6b7280" stroke="none" stroke-width="0"/>
+<text x="331.75" y="226.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">3</text>
+<text x="402.25" y="226.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<circle cx="393.25" cy="238.00" r="5.0" fill="#2a78d6" stroke="none" stroke-width="0"/>
+<text x="404.25" y="242.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#2a78d6" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<text x="246.00" y="273.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">Pneumonia</text>
+<text x="246.00" y="288.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">community (n=21) → hospital/ventilator (n=59)</text>
+<line x1="340.75" y1="274.00" x2="393.25" y2="274.00" stroke="#6b7280" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="340.75" cy="274.00" r="5.0" fill="#ffffff" stroke="#6b7280" stroke-width="2.0"/>
+<circle cx="393.25" cy="274.00" r="5.0" fill="#6b7280" stroke="none" stroke-width="0"/>
+<text x="331.75" y="278.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">3</text>
+<text x="402.25" y="278.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<line x1="340.75" y1="290.00" x2="393.25" y2="290.00" stroke="#2a78d6" stroke-width="3.0" stroke-linecap="round"/>
+<circle cx="340.75" cy="290.00" r="5.0" fill="#ffffff" stroke="#2a78d6" stroke-width="2.0"/>
+<circle cx="393.25" cy="290.00" r="5.0" fill="#2a78d6" stroke="none" stroke-width="0"/>
+<text x="331.75" y="294.00" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#898781" text-anchor="end" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">3</text>
+<text x="402.25" y="294.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#2a78d6" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">5</text>
+<rect x="28.00" y="349.50" width="9.00" height="9.00" rx="2" fill="#eb6834" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="41.00" y="354.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">compartment, all 105 specimens</text>
+<rect x="238.50" y="349.50" width="9.00" height="9.00" rx="2" fill="#6b7280" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="251.50" y="354.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">patient stratum, all specimens</text>
+<rect x="28.00" y="367.50" width="9.00" height="9.00" rx="2" fill="#2a78d6" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="41.00" y="372.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">patient stratum, lavage fluid only</text>
+<text x="546.00" y="30.00" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#0b0b0b" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">b</text>
+<text x="580.00" y="48.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">mNGS report against culture, organism by organism (n = 312)</text>
+<rect x="580.00" y="60.00" width="191.10" height="34.00" rx="0" fill="#2a78d6" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="771.10" y="60.00" width="116.22" height="34.00" rx="0" fill="#7fb0e8" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="887.32" y="60.00" width="26.13" height="34.00" rx="0" fill="#eb6834" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="913.45" y="60.00" width="22.62" height="34.00" rx="0" fill="#1baf7a" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="936.07" y="60.00" width="11.31" height="34.00" rx="0" fill="#b9b7ae" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="947.38" y="60.00" width="22.62" height="34.00" rx="0" fill="#e1e0d9" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="580.00" y="108.00" width="9.00" height="9.00" rx="2" fill="#2a78d6" stroke="#d8d7d1" stroke-width="0.6" opacity="1.0" />
+<text x="594.00" y="116.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">mNGS only 49%</text>
+<rect x="775.00" y="108.00" width="9.00" height="9.00" rx="2" fill="#7fb0e8" stroke="#d8d7d1" stroke-width="0.6" opacity="1.0" />
+<text x="789.00" y="116.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">partial match 29.8%</text>
+<rect x="580.00" y="125.00" width="9.00" height="9.00" rx="2" fill="#eb6834" stroke="#d8d7d1" stroke-width="0.6" opacity="1.0" />
+<text x="594.00" y="133.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">mismatch 6.7%</text>
+<rect x="775.00" y="125.00" width="9.00" height="9.00" rx="2" fill="#1baf7a" stroke="#d8d7d1" stroke-width="0.6" opacity="1.0" />
+<text x="789.00" y="133.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">exact match 5.8%</text>
+<rect x="580.00" y="142.00" width="9.00" height="9.00" rx="2" fill="#b9b7ae" stroke="#d8d7d1" stroke-width="0.6" opacity="1.0" />
+<text x="594.00" y="150.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">culture only 2.9%</text>
+<rect x="775.00" y="142.00" width="9.00" height="9.00" rx="2" fill="#e1e0d9" stroke="#d8d7d1" stroke-width="0.6" opacity="1.0" />
+<text x="789.00" y="150.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">neither 5.8%</text>
+<text x="580.00" y="185.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">mNGS organisms with a same-species culture (75/414)</text>
+<rect x="580.00" y="193.00" width="390.00" height="13.00" rx="2" fill="#f1f0ec" stroke="none" stroke-width="0" opacity="1.0" />
+<rect x="580.00" y="193.00" width="70.59" height="13.00" rx="2" fill="#2a78d6" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="658.59" y="204.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0b0b0b" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">18.1%</text>
+<text x="580.00" y="231.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">cultured organisms absent from the mNGS report (90/165)</text>
+<rect x="580.00" y="239.00" width="390.00" height="13.00" rx="2" fill="#f1f0ec" stroke="none" stroke-width="0" opacity="1.0" />
+<rect x="580.00" y="239.00" width="212.55" height="13.00" rx="2" fill="#eb6834" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="800.55" y="250.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0b0b0b" text-anchor="start" font-weight="bold" font-style="normal" dominant-baseline="alphabetic">54.5%</text>
+<text x="580.00" y="277.00" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">Organism class, reported against adjudicated causative</text>
+<text x="580.00" y="301.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">reported (414)</text>
+<rect x="676.00" y="289.00" width="163.46" height="15.00" rx="0" fill="#4a6fa5" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="757.73" y="300.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">55.6%</text>
+<rect x="839.46" y="289.00" width="79.67" height="15.00" rx="0" fill="#8a5fbf" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="879.30" y="300.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">27.1%</text>
+<rect x="919.14" y="289.00" width="46.75" height="15.00" rx="0" fill="#eda100" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="942.51" y="300.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">15.9%</text>
+<rect x="965.88" y="289.00" width="4.12" height="15.00" rx="0" fill="#b9b7ae" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="580.00" y="325.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">adjudicated (55)</text>
+<rect x="676.00" y="313.00" width="154.94" height="15.00" rx="0" fill="#4a6fa5" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="753.47" y="324.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">52.7%</text>
+<rect x="830.94" y="313.00" width="64.09" height="15.00" rx="0" fill="#8a5fbf" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="862.98" y="324.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">21.8%</text>
+<rect x="895.03" y="313.00" width="69.38" height="15.00" rx="0" fill="#eda100" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<text x="929.72" y="324.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">23.6%</text>
+<rect x="964.41" y="313.00" width="5.29" height="15.00" rx="0" fill="#b9b7ae" stroke="#ffffff" stroke-width="1.0" opacity="1.0" />
+<rect x="676.00" y="342.50" width="9.00" height="9.00" rx="2" fill="#4a6fa5" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="689.00" y="347.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">bacteria</text>
+<rect x="749.40" y="342.50" width="9.00" height="9.00" rx="2" fill="#8a5fbf" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="762.40" y="347.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">viruses</text>
+<rect x="816.75" y="342.50" width="9.00" height="9.00" rx="2" fill="#eda100" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="829.75" y="347.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">fungi</text>
+<rect x="872.00" y="342.50" width="9.00" height="9.00" rx="2" fill="#b9b7ae" stroke="none" stroke-width="0" opacity="1.0" />
+<text x="885.00" y="347.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">mycobacteria</text>
+<text x="580.00" y="369.00" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#898781" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="alphabetic">100 of the 112 reported viruses (89.3%) are herpesviruses</text>
+</svg>

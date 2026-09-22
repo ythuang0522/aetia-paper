@@ -1,0 +1,430 @@
+{
+  "specimens": 105,
+  "impact": {
+    "changed": 69,
+    "changed_pct": 65.7,
+    "attributed": 52,
+    "attributed_pct": 49.5,
+    "attribution_recorded": 89,
+    "attributed_pct_of_recorded": 58.4,
+    "attributed_escalation": 36,
+    "attributed_deescalation": 13,
+    "attributed_inconclusive": 3,
+    "deescalations_total": 19,
+    "escalations_total": 49,
+    "deaths": 51,
+    "deaths_pct": 48.6,
+    "ventilated": 81,
+    "ventilated_denom": 98,
+    "ventilated_pct": 82.7,
+    "burden_median_attributed": 4.0,
+    "burden_median_not_attributed": 4.0,
+    "death_pct_attributed": 57.7,
+    "death_pct_not_attributed": 56.8
+  },
+  "burden_by_specimen": {
+    "BALF": {
+      "n": 63,
+      "median": 5.0,
+      "mean": 5.06,
+      "zero": 2
+    },
+    "Blood": {
+      "n": 24,
+      "median": 1.0,
+      "mean": 1.96,
+      "zero": 6
+    },
+    "CSF": {
+      "n": 6,
+      "median": 2.0,
+      "mean": 2.17,
+      "zero": 0
+    },
+    "Tissue": {
+      "n": 5,
+      "median": 1.0,
+      "mean": 1.0,
+      "zero": 0
+    },
+    "Sputum": {
+      "n": 4,
+      "median": 7.5,
+      "mean": 7.25,
+      "zero": 0
+    },
+    "Ascites": {
+      "n": 1,
+      "median": 1.0,
+      "mean": 1.0,
+      "zero": 0
+    },
+    "Pus": {
+      "n": 1,
+      "median": 1.0,
+      "mean": 1.0,
+      "zero": 0
+    },
+    "Abscess": {
+      "n": 1,
+      "median": 1.0,
+      "mean": 1.0,
+      "zero": 0
+    }
+  },
+  "burden_airway": {
+    "n": 67,
+    "median": 5.0,
+    "q1": 3.0,
+    "q3": 7.0
+  },
+  "burden_sterile": {
+    "n": 38,
+    "median": 1.0,
+    "q1": 1.0,
+    "q3": 2.0
+  },
+  "burden_strata_all_specimens": {
+    "ward:ICU": {
+      "n": 75,
+      "median": 5.0,
+      "mean": 4.64
+    },
+    "ward:general ward": {
+      "n": 30,
+      "median": 1.0,
+      "mean": 2.27
+    },
+    "pneumonia:HAP/VAP": {
+      "n": 59,
+      "median": 5.0,
+      "mean": 5.0
+    },
+    "pneumonia:CAP": {
+      "n": 21,
+      "median": 3.0,
+      "mean": 3.43
+    },
+    "steroid:no": {
+      "n": 64,
+      "median": 3.0,
+      "mean": 3.39
+    },
+    "steroid:yes": {
+      "n": 40,
+      "median": 5.0,
+      "mean": 4.83
+    },
+    "ards:no": {
+      "n": 55,
+      "median": 3.0,
+      "mean": 3.36
+    },
+    "ards:yes": {
+      "n": 48,
+      "median": 5.0,
+      "mean": 4.77
+    }
+  },
+  "burden_strata_BALF_only": {
+    "ward:ICU": {
+      "n": 57,
+      "median": 5.0,
+      "mean": 5.11
+    },
+    "ward:general ward": {
+      "n": 6,
+      "median": 5.0,
+      "mean": 4.67
+    },
+    "pneumonia:HAP/VAP": {
+      "n": 48,
+      "median": 5.0,
+      "mean": 5.4
+    },
+    "pneumonia:CAP": {
+      "n": 12,
+      "median": 3.0,
+      "mean": 3.83
+    },
+    "steroid:yes": {
+      "n": 36,
+      "median": 5.5,
+      "mean": 5.14
+    },
+    "steroid:no": {
+      "n": 27,
+      "median": 5.0,
+      "mean": 4.96
+    },
+    "ards:yes": {
+      "n": 40,
+      "median": 5.0,
+      "mean": 4.9
+    },
+    "ards:no": {
+      "n": 23,
+      "median": 5.0,
+      "mean": 5.35
+    }
+  },
+  "concordance": {
+    "mngs_organisms": 414,
+    "culture_confirmed": 75,
+    "culture_confirmed_pct": 18.1,
+    "culture_organisms": 165,
+    "culture_absent_from_report": 90,
+    "culture_absent_pct": 54.5
+  },
+  "workbook_concordance": {
+    "comparisons": 312,
+    "NGS+ Cx-": {
+      "n": 153,
+      "pct": 49.0
+    },
+    "Matched": {
+      "n": 18,
+      "pct": 5.8
+    },
+    "Partial match": {
+      "n": 93,
+      "pct": 29.8
+    },
+    "Mismatch": {
+      "n": 21,
+      "pct": 6.7
+    },
+    "NGS- Cx +": {
+      "n": 9,
+      "pct": 2.9
+    },
+    "NGS- Cx-": {
+      "n": 18,
+      "pct": 5.8
+    }
+  },
+  "adjudication": {
+    "pathogen": {
+      "n": 33,
+      "median_organisms": 2.0,
+      "mean_organisms": 3.15,
+      "with_no_organism": 3,
+      "therapy_changed": 28,
+      "attributed": 26,
+      "died": 16,
+      "specimens": {
+        "BALF": 12,
+        "Blood": 11,
+        "Sputum": 3,
+        "Tissue": 3,
+        "CSF": 2,
+        "Ascites": 1,
+        "Pus": 1
+      }
+    },
+    "explicit negative": {
+      "n": 6,
+      "median_organisms": 1.0,
+      "mean_organisms": 1.67,
+      "with_no_organism": 1,
+      "therapy_changed": 2,
+      "attributed": 2,
+      "died": 2,
+      "specimens": {
+        "Blood": 3,
+        "CSF": 2,
+        "Tissue": 1
+      }
+    },
+    "dash only": {
+      "n": 16,
+      "median_organisms": 1.0,
+      "mean_organisms": 2.31,
+      "with_no_organism": 3,
+      "therapy_changed": 4,
+      "attributed": 2,
+      "died": 1,
+      "specimens": {
+        "Blood": 9,
+        "CSF": 2,
+        "BALF": 2,
+        "Sputum": 1,
+        "Tissue": 1,
+        "Abscess": 1
+      }
+    },
+    "not recorded": {
+      "n": 50,
+      "median_organisms": 5.0,
+      "mean_organisms": 5.3,
+      "with_no_organism": 1,
+      "therapy_changed": 35,
+      "attributed": 22,
+      "died": 32,
+      "specimens": {
+        "BALF": 49,
+        "Blood": 1
+      }
+    }
+  },
+  "no_pathogen": {
+    "specimens": 22,
+    "pct": 21.0,
+    "explicit": 6,
+    "dash_only": 16,
+    "organisms_reported": 47,
+    "with_at_least_one_organism": 18,
+    "median_organisms": 1.0,
+    "max_organisms": 8
+  },
+  "outcome_attributed": {
+    "exposed_deaths": 30,
+    "exposed_n": 52,
+    "exposed_pct": 57.7,
+    "unexposed_deaths": 21,
+    "unexposed_n": 37,
+    "unexposed_pct": 56.8,
+    "odds_ratio": 1.04,
+    "ci_low": 0.45,
+    "ci_high": 2.41,
+    "p": 1.0,
+    "baseline": {
+      "icu": {
+        "exposed_pct": 71.2,
+        "unexposed_pct": 91.9
+      },
+      "ards": {
+        "exposed_pct": 51.9,
+        "unexposed_pct": 54.1
+      },
+      "malignancy": {
+        "exposed_pct": 40.4,
+        "unexposed_pct": 40.5
+      },
+      "steroid": {
+        "exposed_pct": 40.4,
+        "unexposed_pct": 48.6
+      }
+    },
+    "adjusted": {
+      "n": 89,
+      "deaths": 51,
+      "terms": {
+        "intercept": {
+          "odds_ratio": 0.25,
+          "ci_low": 0.05,
+          "ci_high": 1.23,
+          "p": 0.088
+        },
+        "attributed": {
+          "odds_ratio": 1.22,
+          "ci_low": 0.46,
+          "ci_high": 3.21,
+          "p": 0.691
+        },
+        "icu": {
+          "odds_ratio": 1.59,
+          "ci_low": 0.44,
+          "ci_high": 5.76,
+          "p": 0.479
+        },
+        "ards": {
+          "odds_ratio": 4.22,
+          "ci_low": 1.07,
+          "ci_high": 16.63,
+          "p": 0.04
+        },
+        "malignancy": {
+          "odds_ratio": 2.63,
+          "ci_low": 0.94,
+          "ci_high": 7.32,
+          "p": 0.064
+        },
+        "steroid": {
+          "odds_ratio": 1.28,
+          "ci_low": 0.31,
+          "ci_high": 5.23,
+          "p": 0.73
+        },
+        "age_per_10y": {
+          "odds_ratio": 1.02,
+          "ci_low": 0.73,
+          "ci_high": 1.42,
+          "p": 0.918
+        }
+      }
+    }
+  },
+  "outcome_changed_confounded": {
+    "exposed_deaths": 40,
+    "exposed_n": 69,
+    "unexposed_deaths": 11,
+    "unexposed_n": 36,
+    "odds_ratio": 3.04,
+    "ci_low": 1.31,
+    "ci_high": 7.07,
+    "p": 0.013,
+    "baseline": {
+      "icu": {
+        "exposed_pct": 75.4,
+        "unexposed_pct": 63.9
+      },
+      "ards": {
+        "exposed_pct": 56.5,
+        "unexposed_pct": 25.0
+      },
+      "malignancy": {
+        "exposed_pct": 40.6,
+        "unexposed_pct": 30.6
+      },
+      "steroid": {
+        "exposed_pct": 44.9,
+        "unexposed_pct": 25.0
+      }
+    },
+    "interpretation": "confounded by indication: the exposed group is sicker at baseline"
+  },
+  "class_composition": {
+    "reported_total": 414,
+    "adjudicated_total": 55,
+    "reported": {
+      "bacterium": {
+        "n": 230,
+        "pct": 55.6
+      },
+      "virus": {
+        "n": 112,
+        "pct": 27.1
+      },
+      "fungus": {
+        "n": 66,
+        "pct": 15.9
+      },
+      "mycobacterium": {
+        "n": 6,
+        "pct": 1.4
+      }
+    },
+    "adjudicated": {
+      "bacterium": {
+        "n": 29,
+        "pct": 52.7
+      },
+      "virus": {
+        "n": 12,
+        "pct": 21.8
+      },
+      "fungus": {
+        "n": 13,
+        "pct": 23.6
+      },
+      "mycobacterium": {
+        "n": 1,
+        "pct": 1.8
+      }
+    },
+    "herpesviruses": 100,
+    "herpesvirus_pct_of_viruses": 89.3
+  },
+  "microbiology_rows_without_a_registry_specimen": 5
+}

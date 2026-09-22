@@ -58,7 +58,8 @@ def main() -> None:
     shutil.copy(ROOT / "Supplementary.pdf", OUT / "supplementary.pdf")
     n_main = render_pages(ROOT / "main.pdf", "main")
     n_supp = render_pages(ROOT / "Supplementary.pdf", "supp")
-    figs = [("fig1", "fig1_overview"), ("fig2", "fig2_benchmark"), ("fig3", "fig3_llm_comparison")]
+    figs = [("fig1", "fig1_overview"), ("fig2", "fig2_benchmark"), ("fig3", "fig3_llm_comparison"), ("fig4", "fig4_explanation"), ("ed1", "ed1_cohort_flow")]
+    fig_labels = {"fig1": "Fig. 1", "fig2": "Fig. 2", "fig3": "Fig. 3", "fig4": "Fig. 4", "ed1": "Extended Data Fig. 1"}
     for short, name in figs:
         run("rsvg-convert", "-f", "png", "-z", "1.6", "-o", str(OUT / "figures" / f"{short}.png"), str(ROOT / "figures" / f"{name}.svg"))
 
@@ -76,13 +77,15 @@ def main() -> None:
             for i in range(1, n + 1))
 
     figcaps = {
-        "fig1": "Overview of AETIA: modality agents, deterministic sieve with guardrails and safety review, evidence modules, R5 gate and auditable delivery.",
+        "fig1": "Overview of AETIA (concept-only redesign, 2026-09-21): language-model agents per read-out, a funnel of four rule-based filters with colonizer guardrails, a safety review that can flag but not pick, an evidence matrix for every candidate (articles read by a language model against a label-blind case card; sequencing, direct tests and colonization graded by rules), and the final rule that freezes the list before the explanation is written.",
         "fig2": "Precision–recall plane and P/R/F1 against the raw mNGS report, FilmArray/GM and culture (n = 55); organism burden (n = 35).",
         "fig3": "Precision–recall plane and P/R/F1 against four frontier language models prompted directly on identical data (n = 41).",
+        "fig4": "What no single read-out can say, and what the delivered record says (redesigned 2026-09-21): registry read counts of the ten species adjudicated both ways (colonization vs infection); the 17 adjudicated pathogens absent from the sequenced specimen and the culture, PCR, antigen or serology that found them within days; the delivered record for the two worked cases (presence vs fit to this patient); disposition of all 518 candidates.",
+        "ed1": "Cohort flow from the 105-specimen registry to the 55-patient R5 cohort and the 41-patient direct-prompting cohort (Extended Data).",
     }
     fig_html = "".join(
-        f'<figure><img src="figures/{k}.png" alt="Figure {i + 1}" loading="lazy"><figcaption><b>Fig. {i + 1}</b> {figcaps[k]}</figcaption></figure>'
-        for i, (k, _) in enumerate(figs))
+        f'<figure><img src="figures/{k}.png" alt="{fig_labels[k]}" loading="lazy"><figcaption><b>{fig_labels[k]}</b> {figcaps[k]}</figcaption></figure>'
+        for k, _ in figs)
 
     html = f"""<title>AETIA Manuscript</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600&display=swap">
@@ -142,7 +145,7 @@ a{{color:var(--accent);}}
 </style>
 <div class="wrap">
   <div class="eyebrow">Manuscript draft · Nature Medicine target · built {date} from <code>{commit}</code>{' (uncommitted edits present)' if dirty else ''}</div>
-  <h1>Auditable multimodal integration of metagenomic sequencing and clinical evidence identifies causative pathogens in lower respiratory tract infection</h1>
+  <h1>Multimodal integration of metagenomic and clinical data for pathogen identification in lower respiratory tract infection</h1>
   <p class="sub">AETIA (Agentic Evidence Tracing of Infectious Aetiology). Modality-specific language-model agents, a deterministic scorer with pre-specified guardrails, PubMed case-fit evidence and a frozen final rule, evaluated on patients from KMUH, TVGH and TSGH. Numbers that still come from a slide rather than an evaluation file are marked in red.</p>
   <div class="actions">
     <a class="btn primary" href="main.pdf" target="_blank" rel="noopener">Manuscript PDF</a>
@@ -150,8 +153,8 @@ a{{color:var(--accent);}}
     <a class="btn" href="{REPO}" target="_blank" rel="noopener">LaTeX sources on GitHub</a>
   </div>
   <div class="grid">
-    <div class="stat"><div class="k">Main text</div><div class="v">{n_main} pp</div><div class="n">line-numbered, 3 figures, Table 1</div></div>
-    <div class="stat"><div class="k">Supplementary</div><div class="v">{n_supp} pp</div><div class="n">1 figure, 5 tables, 5 notes</div></div>
+    <div class="stat"><div class="k">Main text</div><div class="v">{n_main} pp</div><div class="n">line-numbered, 4 figures, Table 1, Extended Data Fig. 1</div></div>
+    <div class="stat"><div class="k">Supplementary</div><div class="v">{n_supp} pp</div><div class="n">5 tables, 6 notes</div></div>
     <div class="stat"><div class="k">Unverified marks</div><div class="v">{todo}</div><div class="n">red <code>\\todo</code> items to resolve</div></div>
     <div class="stat"><div class="k">References</div><div class="v">{refs}</div><div class="n">resolved through Crossref</div></div>
   </div>
@@ -167,8 +170,8 @@ a{{color:var(--accent);}}
   <div class="flags">
     <div class="flag"><span class="tag">Data</span><p>All performance numbers are transcribed from the 2026-09-15 student deck and the 2026-01-17 talk. The frozen evaluation outputs (55-case R5 metrics, 41-case direct-prompting reports, gold version) are needed to replace them.</p></div>
     <div class="flag"><span class="tag">Conflict</span><p>Slide 3 lists the pipeline's precision on the 41 patients as 71.62%; the recorded tally TP 69 / FP 33 / FN 7 gives 67.65%, and the slide's own recall and F1 match only the latter. The draft uses 67.65%.</p></div>
-    <div class="flag"><span class="tag">Cohorts</span><p>Confirm that slide 2 is the 55-case delivery cohort, how the 35-patient ICU series relates to it, and the two-hospital 54 → 48 → 25 inclusion steps. Table 1 currently describes the 105-specimen registry.</p></div>
-    <div class="flag"><span class="tag">People</span><p>Author list and order, clinical co-authors per hospital, IRB approvals and consent statements, case-level presentation approval for the two vignettes.</p></div>
+    <div class="flag"><span class="tag">Cohorts</span><p>Confirm that slide 2 is the 55-case delivery cohort, how the 35-patient ICU series relates to it, and the two-hospital 54 → 48 → 25 inclusion steps (Extended Data Fig. 1). Table 1 currently describes the 105-specimen registry.</p></div>
+    <div class="flag"><span class="tag">People</span><p>IRB approvals and consent statements, the OpenAI data-processing terms, Author contributions / Competing interests / Acknowledgements, case-level presentation approval for the two vignettes (author list settled 2026-09-20).</p></div>
   </div>
 
   <h2>Figures</h2>
@@ -210,6 +213,8 @@ a{{color:var(--accent);}}
     (OUT / "files_with_removals.json").write_text(json.dumps({**files, **removals}, indent=1), encoding="utf-8")
     total = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
     print(f"hub-build ready: main {n_main} pp, supp {n_supp} pp, todo {todo}, refs {refs}, commit {commit}{' (dirty)' if dirty else ''}; {total/1e6:.1f} MB")
+    # Compact publish list for the Artifact tool's `files` parameter (plain list = publish each file at its own path).
+    print("files:", json.dumps(sorted(files), separators=(",", ":")))
 
 
 if __name__ == "__main__":

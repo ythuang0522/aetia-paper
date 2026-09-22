@@ -1,6 +1,6 @@
 % ------------------------------------------------------------------
-%  AETIA -- multimodal pathogen selection from mNGS and clinical evidence
-%  Manuscript draft.  Build:  latexmk -pdf main.tex   (or `make` in this folder)
+% AETIA -- multimodal pathogen selection from mNGS and clinical evidence
+% Manuscript draft. Build: latexmk -pdf main.tex (or `make` in this folder)
 % ------------------------------------------------------------------
 \documentclass[11pt,a4paper]{article}
 
@@ -24,8 +24,8 @@
 \setcitestyle{super,open={},close={}}
 
 % ---------- names / editorial macros ----------
-\newcommand{\toolname}{AETIA\xspace}              % external research-system name (docs/OBER_NAMING.md)
-\newcommand{\toolexpansion}{Agentic Evidence Tracing of Infectious Aetiology\xspace}  % expanded at first use in the abstract and Introduction
+\newcommand{\toolname}{AETIA\xspace} % external research-system name (docs/OBER_NAMING.md)
+\newcommand{\toolexpansion}{Agentic Evidence Tracing of Infectious Aetiology\xspace} % expanded at first use in the abstract and Introduction
 \newcommand{\mngs}{mNGS\xspace}
 \newcommand{\filmarray}{FilmArray\xspace}
 \newcommand{\rfive}{R5\xspace}
@@ -37,25 +37,40 @@
 \newcommand{\kmuh}{KMUH\xspace}
 \newcommand{\tvgh}{TVGH\xspace}
 \newcommand{\tsgh}{TSGH\xspace}
-\newcommand{\todo}[1]{\textcolor{red}{[#1]}}     % items to verify before submission
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}} % items to verify before submission
 
-% Title (Nature style: declarative, no colon, states the advance and its consequence).
-% Alternatives:
-%  (a) Rule-governed, literature-grounded integration of metagenomic and clinical evidence identifies causative pathogens with auditable reasoning
-%  (b) Structured multimodal reasoning turns metagenomic pathogen lists into actionable, traceable diagnoses
-%  (c) Clinically contextualized multi-agent reasoning outperforms direct large-language-model diagnosis on metagenomic data
-\title{Auditable multimodal integration of metagenomic sequencing and clinical evidence identifies causative pathogens in lower respiratory tract infection}
+% Title chosen by the PI on 2026-09-21 (15 words, no colon): emphasizes multimodal
+% data integration and the clinical task of pathogen identification.
+% Earlier candidates:
+% (e) [previous main title] Auditable multimodal integration of metagenomic and clinical evidence identifies causative pathogens and explains each call in lower respiratory tract infection
+% (f) Agentic evidence tracing identifies causative pathogens from metagenomic sequencing in lower respiratory tract infection
+% (a) Rule-governed, literature-grounded integration of metagenomic and clinical evidence identifies causative pathogens with auditable reasoning
+% (b) Structured multimodal reasoning turns metagenomic pathogen lists into actionable, traceable diagnoses
+% (c) Clinically contextualized multi-agent reasoning outperforms direct large-language-model diagnosis on metagenomic data
+% (d) [former main title, accuracy only] Auditable multimodal integration of metagenomic sequencing and clinical evidence identifies causative pathogens in lower respiratory tract infection
+\title{Multimodal integration of metagenomic and clinical data for pathogen identification in lower respiratory tract infection}
 
-\author{%
-\todo{Yu-Cheng Wu}$^{1}$, \todo{Chun-Ting Chang}$^{1}$, \todo{Yuan-Ting Chung}$^{1}$,\\
-\todo{Yuan-Ting Yeh}$^{1}$, \todo{clinical co-authors, KMUH}$^{2}$, \todo{clinical co-authors, TVGH}$^{3}$,\\
-\todo{clinical co-authors, TSGH}$^{4}$,\\
-Yao-Ting Huang$^{1,\ast}$\\[4pt]
-\small $^{1}$Department of Computer Science and Information Engineering, National Chung Cheng University, Chiayi, Taiwan\\
-\small $^{2}$\todo{Kaohsiung Medical University Hospital, Kaohsiung, Taiwan}\\
-\small $^{3}$\todo{Taipei Veterans General Hospital, Taipei, Taiwan}\\
-\small $^{4}$\todo{Tri-Service General Hospital, Taipei, Taiwan}\\
-\small $^{\ast}$Correspondence: ythuang@cs.ccu.edu.tw}
+% Author block. Clinical authors' English names and affiliations were taken from their latest
+% Europe PMC records (2026-09-20): W.-A. Chang -- Biomedicines 2025, 10.3390/biomedicines13010142;
+% C.-H. Shen -- BMC Infect Dis 2026, 10.1186/s12879-026-13877-4 (J Infect Public Health 2025 for the
+% hospital address); J.-Y. Feng -- Pulmonology 2026, 10.1080/25310429.2026.2704386 and BMC Infect Dis 2026.
+% Order fixed by the corresponding author on 2026-09-20: three clinicians, then the three CCU students
+% (張鈞婷 Chun-Ting Chang, 鐘元廷 Yuan-Ting Chung, 吳昱承 Yu-Cheng Wu; standard Taiwan romanization),
+% then the corresponding author.
+\author{\parbox{\textwidth}{\centering\setlength{\baselineskip}{13pt}%
+Wei-An Chang$^{1,2,3}$, Chih-Hao Shen$^{4}$, Jia-Yih Feng$^{5,6,7}$,\\
+Chun-Ting Chang$^{8}$, Yuan-Ting Chung$^{8}$, Yu-Cheng Wu$^{8}$,\\
+Yao-Ting Huang$^{8,\ast}$\\[4pt]
+\small $^{1}$Division of Pulmonary and Critical Care Medicine, Department of Internal Medicine, Kaohsiung Medical University Hospital, Kaohsiung Medical University, Kaohsiung, Taiwan\\
+\small $^{2}$Department of Internal Medicine, School of Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung, Taiwan\\
+\small $^{3}$Graduate Institute of Clinical Medicine, College of Medicine, Kaohsiung Medical University, Kaohsiung, Taiwan\\
+\small $^{4}$Division of Pulmonary and Critical Care Medicine, Department of Internal Medicine, Tri-Service General Hospital, National Defense Medical University, Taipei, Taiwan\\
+\small $^{5}$Department of Chest Medicine, Taipei Veterans General Hospital, Taipei, Taiwan\\
+\small $^{6}$School of Medicine, National Yang Ming Chiao Tung University, Taipei, Taiwan\\
+\small $^{7}$Institute of Emergency and Critical Care Medicine, National Yang Ming Chiao Tung University, Taipei, Taiwan\\
+\small $^{8}$Department of Computer Science and Information Engineering, National Chung Cheng University, Chiayi, Taiwan\\
+\small $^{\ast}$Correspondence: ythuang@cs.ccu.edu.tw\\[4pt]
+\small}}
 \date{}
 
 \begin{document}
@@ -65,44 +80,56 @@ Yao-Ting Huang$^{1,\ast}$\\[4pt]
 \maketitle
 
 \begin{abstract}
-Metagenomic next-generation sequencing (\mngs) detects nearly every organism in a respiratory specimen, but most of what it reports is colonizing, contaminating or reactivated rather than causative, and the physician is left to reconcile a long organism list with cultures, multiplex PCR, antigen tests, imaging, blood counts and host status. Here we present \toolname (\toolexpansion), a pipeline that turns this multimodal record into a short, traceable list of causative pathogens. Modality-specific language-model agents extract structured evidence from each test; a deterministic scorer grades every \mngs organism by read burden, within-specimen dominance, control-subtracted rank, specimen alignment and same-organism hospital support, and applies pre-specified guardrails against known colonizers; a language-model safety review flags what the rules did not pick; and a final rule rescues a candidate only when PubMed literature judged against the patient's own site, syndrome and host, or definitive direct evidence, supports it. Selection is frozen before any rationale is written, and every decision carries its rule path and source hashes. On \todo{55} patients with suspected lower respiratory tract infection from three Taiwanese hospitals, \toolname reached a precision of \todo{71.6\%}, recall of \todo{91.4\%} and F1 of \todo{80.3\%} against physician-adjudicated pathogens, compared with F1 of \todo{14.8\%} for the raw \mngs report, \todo{50.0\%} for \filmarray and galactomannan testing and \todo{45.5\%} for culture, and, in an earlier 35-patient intensive-care series, reducing the average number of organisms presented per patient from \todo{5.8} to \todo{2.0}. On \todo{41} patients, the same pipeline exceeded four frontier language models prompted directly with the identical raw data by \todo{14--15} F1 points, mainly through recall (\todo{90.8\%} versus \todo{57--61\%}). \toolname is research software whose output is a reviewed candidate list, not a diagnosis; it shows that structured, literature-grounded integration, rather than end-to-end prompting, is what makes \mngs clinically interpretable.
+Distinguishing causative pathogens from incidental microbial detections remains a challenge in metagenomic diagnosis of respiratory infection. We developed \toolname (\toolexpansion), which combines language models and prespecified rules to integrate metagenomic, clinical, microbiological and published evidence. In a retrospective development cohort of 55 patients with suspected lower respiratory tract infection at three hospitals, \toolname achieved 71.6\% precision and 91.4\% recall against physician-adjudicated pathogens. Its F1 score, summarizing precision and recall, was 80.3\%, compared with 14.8\% for unfiltered sequencing reports, 50.0\% for multiplex polymerase chain reaction and galactomannan testing, and 45.5\% for culture. In a 41-patient subset, \toolname exceeded four language models directly prompted with the same data by 13.6--15.1 F1 points. Each organism's selection or exclusion was linked to the underlying evidence. These findings support integrating clinical context with metagenomic results for pathogen attribution; external validation and prospective evaluation are needed to establish clinical utility.
 \end{abstract}
 
 \section*{Introduction}
 \input{sections/introduction}
 
 \begin{figure}[p]
-  \centering
-  \includegraphics[width=\textwidth]{fig1_overview}
-  \caption{\textbf{Overview of \toolname.}
-  \textbf{a}, One patient's record. Seven read-outs are each parsed by a dedicated language-model agent into a fixed schema; glyphs mark the organism classes (bacterium, fungus, virus, yeast) or host context an agent supplies. Agents see neither the reference labels nor each other.
-  \textbf{b}, Deterministic selection. Organisms on the \mngs report (bars, reads; R0--R4, read tier) pass four filters---read burden, within-specimen dominance, control-subtracted rank, and site alignment with same-organism hospital support---that assign a signal tier and a causative level; 33 guardrails demote colonizers and reactivation viruses (crossed glyphs). Levels 1--2 and supported level 3 are picked in a fixed order. A language-model review reads only the unpicked organisms and can flag them (high priority, context needed) but cannot pick.
-  \textbf{c}, Evidence for each carried candidate: A, PubMed articles judged for exact-species, site-matched human evidence and re-judged against the patient (A1 case-fit); B, \mngs strength on an absolute and a relative axis; C, direct non-\mngs evidence graded C0--C3; D, colonization gate (reported, not gating).
-  \textbf{d}, Rule \rfive selects organisms that were picked, meet C3, or meet A1, site alignment and a B axis together. The list is frozen with rule paths and input hashes before a language model writes the rationale; delivery is a summary table with a traceable JSON, Markdown and XLSX package.}
-  \label{fig:overview}
+ \centering
+ \includegraphics[width=0.8\textwidth]{fig1_overview}
+ \caption{\textbf{Overview of \toolname.}
+ Violet chip, language-model step (extracts, judges or explains; never decides); cog, deterministic rule (decides).
+ \textbf{a}, Each read-out is parsed by a dedicated language-model agent into a fixed schema of organism-specific evidence, host status and specimen context; glyphs indicate the information available to each agent. Agents receive neither other read-outs nor reference labels.
+ \textbf{b}, Every organism on the \mngs report (bars, reads) is assessed by four filters. Prespecified guardrails exclude colonizers and reactivated viruses (crossed glyphs). Selections are ordered once; the safety review may flag unselected organisms but cannot select them.
+ \textbf{c}, Evidence matrix with one row per candidate. Up to ten PubMed articles are assessed against a label-blind case summary and classified by rule as strong, partial or neither (one dot per article). Additional columns show sequencing burden and dominance, exact-species direct tests by specimen and colonization status.
+ \textbf{d}, A candidate is selected by any of three criteria (brace): passage through all filters and guardrails in \textbf{b}; isolation of the same species from a sterile site or tissue; or matching published cases together with anatomical agreement and a high or dominant read count. Dashed symbols indicate criteria not met by any candidate. The list is fixed before explanation generation. The delivered record reports each organism's disposition and the findings supporting it; explanatory text cannot add, remove or reorder organisms. Methods and Supplementary Tables~1--4. \todo{d: prototype vignette (Fig.~\ref{fig:explain}e); regenerate from the delivered record and approve.}}
+ \label{fig:overview}
 \end{figure}
 
 \section*{Results}
 \input{sections/results}
 
 \begin{figure}[p]
-  \centering
-  \includegraphics[width=0.9\textwidth]{fig2_benchmark}
-  \caption{\textbf{Pathogen selection compared with the raw \mngs report, \filmarray/galactomannan and culture.}
-  \textbf{a}, Precision against recall for \toolname (blue) and for each read-out taken at face value: all organisms in the \mngs report (triangle), all positive \filmarray or galactomannan targets (square) and all cultured organisms (diamond); dashed curves, constant F1.
-  \textbf{b}, The same comparison as precision, recall and F1. $n=\todo{55}$ patients (\kmuh \todo{30}; \tvgh and \tsgh \todo{25}); unit, (patient, organism) pair at species level; reference standard, physician-adjudicated pathogens (Methods).
-  \textbf{c},\textbf{d}, Earlier intensive-care series (\kmuh, $n=\todo{35}$; first pipeline version): fraction of patients with at least one reported organism (\textbf{c}) and mean organisms per patient (\textbf{d}). \todo{Values transcribed from slides; regenerate from the evaluation output.}}
-  \label{fig:benchmark}
+ \centering
+ \includegraphics[width=0.9\textwidth]{fig2_benchmark}
+ \caption{\textbf{Pathogen selection compared with the raw \mngs report, \filmarray/galactomannan and culture.}
+ \textbf{a}, Precision against recall for \toolname (blue) and for each read-out taken at face value: all organisms in the \mngs report (triangle), all positive \filmarray or galactomannan targets (square) and all cultured organisms (diamond); dashed curves, constant F1.
+ \textbf{b}, The same comparison as precision, recall and F1. $n=55$ patients (\kmuh 30; \tvgh and \tsgh 25); unit, (patient, organism) pair at species level; reference standard, physician-adjudicated pathogens (Methods).
+ \textbf{c},\textbf{d}, Earlier intensive-care series (\kmuh, $n=35$; first pipeline version): fraction of patients with at least one reported organism (\textbf{c}) and mean organisms per patient (\textbf{d}).}
+ \label{fig:benchmark}
+\end{figure}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=0.9\textwidth]{fig3_llm_comparison}
+ \caption{\textbf{Comparison with general-purpose language models prompted directly on the same data.}
+ \gptsol, \gptluna, \gptterra and \gptastra received the same de-identified record, comprising the laboratory \mngs report with per-organism read counts, cultures, \filmarray, galactomannan, molecular tests, imaging reports, blood counts and diagnoses. Each model received one prompt and a JSON schema, without retrieval or reference labels (Methods; Supplementary Note~2).
+ \textbf{a}, Precision against recall; \toolname in blue, models in grey (marker key in panel); dashed curves, constant F1.
+ \textbf{b}, Precision, recall and F1. $n=41$ patients (\kmuh 30; \tvgh and \tsgh 11); micro-averaged over (patient, organism) pairs; \toolname values from the frozen pipeline decisions on the same patients (TP~69, FP~33, FN~7).}
+ \label{fig:llm}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.9\textwidth]{fig3_llm_comparison}
-  \caption{\textbf{Comparison with frontier language models prompted directly on the same data.}
-  \gptsol, \gptluna, \gptterra and \gptastra received the identical de-identified record---raw \mngs list with reads and control codes, cultures, \filmarray, galactomannan, molecular tests, imaging reports, blood counts and diagnoses---with one prompt, a JSON schema and no retrieval or reference labels (Methods; Supplementary Note~\todo{2}).
-  \textbf{a}, Precision against recall; \toolname in blue, models in grey (marker key in panel); dashed curves, constant F1.
-  \textbf{b}, Precision, recall and F1. $n=\todo{41}$ patients (\kmuh \todo{30}; \tvgh and \tsgh \todo{11}); micro-averaged over (patient, organism) pairs; \toolname values from the frozen \rfive decisions on the same patients (TP~\todo{69}, FP~\todo{33}, FN~\todo{7}). \todo{Slide gives 71.62\% precision; TP/FP imply 67.65\%.}}
-  \label{fig:llm}
+  \includegraphics[width=\textwidth]{fig4_explanation}
+  \caption{\textbf{Clinical evidence underlying individual pathogen-selection decisions.}
+ \textbf{a--d}, Analysis of 32 \kmuh admissions with available source workbooks; admissions sequenced more than once were counted once. \textbf{a}, Number of recorded results per admission by modality, compared with the single \mngs report (median 247, IQR 214--263; new results recorded on 16 of 31 days). \textbf{b}, Organisms named per admission (median 8, IQR 6--11). Each bar represents one admission and shading indicates the number of read-outs that named an organism. Of 270 organism--admission pairs, 81\% were named by one read-out and 91\% were never isolated from a sterile site. \textbf{c}, Cumulative percentage of 254 culture reports issued by day and outcome. The median reporting time was 6 days for no growth and 3 days for growth. \textbf{d}, Wording of 365 chest-imaging reports: 39\% qualified a finding of pneumonia, infiltrate or consolidation, 51\% reported such a finding without qualification and 10\% used none of these terms. Qualifying terms are defined in Methods.
+ \textbf{e--g}, Delivered records for three cases, with one glyph per evidence source and the decision and supporting evidence fixed before explanation generation. \textbf{e}, \textit{Candida albicans} classified as airway colonization and \textit{Klebsiella pneumoniae} selected from the same lavage specimen. \textbf{f}, \textit{Candida tropicalis} selected because blood cultures grew the same species (overridden guardrail, ringed). \textbf{g}, Registry pathogen absent from the sequenced specimen and retained for review on the basis of IgM serology.
+ \textbf{h}, Disposition of 518 organisms in 55 patients: 114 selected by the deterministic rules, 9 added by traced evidence and 395 excluded with a recorded reason.
+ \todo{Panels e and f use the two prototype vignettes of the 2026-01-17 talk; regenerate from the delivered pipeline records and obtain case-level approval.}}
+  \label{fig:explain}
 \end{figure}
 
 \input{tables/table1_cohort}
@@ -114,5 +141,35 @@ Metagenomic next-generation sequencing (\mngs) detects nearly every organism in 
 \input{sections/methods}
 
 \bibliography{references}
+
+% ---------- Extended Data (Nature Portfolio: peer-reviewed, online-only display items; one page each) ----------
+\clearpage
+\section*{Extended Data}
+\begingroup
+\renewcommand{\figurename}{Extended Data Fig.}
+\renewcommand{\theHfigure}{ED\arabic{figure}}
+\setcounter{figure}{0}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{ed1_cohort_flow}
+  \caption{\textbf{Cohort flow.} A single pooled flow from the three-hospital \mngs registry to the two evaluation cohorts, with the contribution of each hospital given at every node and exclusions branching to the right. The two hospital lines differ in where their adjudication is stored and in how their standardized records were assembled, which is a matter of data provenance rather than of eligibility (Methods). Amber, exclusion steps; the criteria for the two-hospital steps are incompletely documented in the source materials \todo{state the 54 $\rightarrow$ 48 $\rightarrow$ 25 reasons, and the number of patients excluded because the final diagnosis was not pulmonary infection}. Dashed grey, the earlier 35-patient intensive-care series used for the organism-burden comparison (Fig.~\ref{fig:benchmark}c,d), which is not part of this flow and whose overlap with the evaluation cohorts is \todo{unconfirmed}. Counts from the repository's cohort validation of 2026-09-18.}
+  \label{fig:ed1}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{ed2_registry}
+  \caption{\textbf{What the registry's \mngs reports contain, and how they compare with culture.} The three-hospital registry of 105 \mngs specimens (Table~\ref{tab:cohort}). \textbf{a}, Organisms per \mngs report (median). Each row is a dumbbell joining the two levels of one contrast; the open circle is the lower level, the filled circle the higher, and the number beside each circle is that level's median. Orange, the specimen compartment (sterile-site against airway specimens, all 105); grey, a patient stratum over all 105 specimens; blue, the same stratum restricted to bronchoalveolar lavage. The ward, corticosteroid and ARDS gaps present over all specimens close once the compartment is held fixed, so the length of the report tracks the specimen and not the severity of illness; only the pneumonia-category difference persists. \textbf{b}, Agreement between the \mngs report and culture. Top, the registry's own organism-by-organism comparison (312 comparisons; the workbook's category names are used unchanged, and it does not define partial match or mismatch). Middle, the two corroboration rates, with numerator and denominator given. Bottom, organism class among the 414 reported organisms and the 55 adjudicated causative pathogens. Source: \texttt{tables/make\_impact.py}.}
+  \label{fig:ed2}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{ed3_trajectory}
+  \caption{\textbf{The course after the sequencing report, under conventional care.} The 48 \kmuh admissions with complete machine-readable discharge records (31 deaths, 17 survivors); day~0 is the \mngs specimen. No patient in this analysis received \toolname: these are the trajectories of routine care that motivate the work. \textbf{a}, One row per admission, grouped by outcome and ordered by length of admission. Left, the highest temperature recorded in each window after the specimen; right, the days of admission that followed it. The temperature block empties from left to right in both groups: fever resolves whether or not the admission ends in death. \textbf{b}, The same temperatures as the proportion of patients reaching 38\,\textdegree C, with the number contributing to each point. \textbf{c}, Counted per patient rather than per window, for the patients who died: whether each marker improved by day 3--7 and whether the improvement held to day 8--30. Temperature and oxygenation improved in most and reversed in about half; platelets, which tracked the outcome, improved in 2 of 14. Windows are $-14$ to $-1$, 0--2, 3--7, 8--14 and 15--30 days. Antipyretics, corticosteroids, sedation and ventilator settings act on these variables and are not adjusted for; no causal claim is made (Methods).}
+  \label{fig:ed3}
+\end{figure}
+
+\endgroup
 
 \end{document}

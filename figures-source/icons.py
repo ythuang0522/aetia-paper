@@ -269,3 +269,89 @@ def sieve(svg, x, y, w, h, ink=INK, fill=PALE):
     for i in range(1, int(w // 10)):
         xx = x + i * 10
         _p(svg, f"M{xx:.2f},{y + 3:.2f} V{y + h - 3:.2f}", stroke="#cbd5e1", sw=0.8)
+
+
+def cog(svg, x, y, s, ink=INK, fill=LIGHT, teeth=8):
+    """Deterministic-rule marker: a cog wheel."""
+    k = s / 40
+    cx, cy = x + 20 * k, y + 20 * k
+    ro, ri, rh = 15 * k, 11 * k, 4.5 * k
+    pts = []
+    n = teeth * 2
+    for i in range(n):
+        a0 = math.radians(i * 360 / n - 90)
+        a1 = math.radians((i + 1) * 360 / n - 90)
+        r = ro if i % 2 == 0 else ri
+        pts.append((cx + r * math.cos(a0), cy + r * math.sin(a0)))
+        pts.append((cx + r * math.cos(a1), cy + r * math.sin(a1)))
+    d = "M" + " L".join(f"{px:.2f},{py:.2f}" for px, py in pts) + " Z"
+    _p(svg, d, stroke=ink, sw=1.6 * k, fill=fill)
+    _c(svg, cx, cy, rh, fill=WHITE, stroke=ink, sw=1.6 * k)
+
+
+def magnifier(svg, x, y, s, ink=INK, fill=WHITE):
+    """Search marker: a magnifying glass."""
+    k = s / 40
+    _c(svg, x + 16 * k, y + 16 * k, 10 * k, fill=fill, stroke=ink, sw=2 * k)
+    _p(svg, f"M{x + 23.5 * k:.2f},{y + 23.5 * k:.2f} L{x + 35 * k:.2f},{y + 35 * k:.2f}", stroke=ink, sw=3 * k)
+
+
+def antibody(svg, cx, cy, s, ink=INK, accent="#0f766e"):
+    """Y-shaped immunoglobulin (serology marker)."""
+    k = s / 40
+    _p(svg, f"M{cx:.2f},{cy + 16 * k:.2f} V{cy:.2f} M{cx:.2f},{cy:.2f} L{cx - 11 * k:.2f},{cy - 14 * k:.2f} "
+            f"M{cx:.2f},{cy:.2f} L{cx + 11 * k:.2f},{cy - 14 * k:.2f}", stroke=ink, sw=3.2 * k)
+    _p(svg, f"M{cx - 3 * k:.2f},{cy - 4 * k:.2f} L{cx - 14 * k:.2f},{cy - 18 * k:.2f} "
+            f"M{cx + 3 * k:.2f},{cy - 4 * k:.2f} L{cx + 14 * k:.2f},{cy - 18 * k:.2f}", stroke=accent, sw=2.4 * k)
+
+
+def bottle(svg, x, y, s, ink=INK, growth=False, accent="#f59e0b"):
+    """Blood-culture bottle; growth draws colonies in the broth."""
+    k = s / 40
+    _r(svg, x + 15 * k, y + 2 * k, 10 * k, 7 * k, fill="#9ca3af", stroke=ink, sw=1.4 * k, rx=1.5 * k)
+    _p(svg, f"M{x + 12 * k:.2f},{y + 9 * k:.2f} H{x + 28 * k:.2f} V{y + 14 * k:.2f} L{x + 32 * k:.2f},{y + 19 * k:.2f} "
+            f"V{y + 34 * k:.2f} a{4 * k:.2f},{4 * k:.2f} 0 0 1 {-4 * k:.2f},{4 * k:.2f} H{x + 12 * k:.2f} "
+            f"a{4 * k:.2f},{4 * k:.2f} 0 0 1 {-4 * k:.2f},{-4 * k:.2f} V{y + 19 * k:.2f} Z", stroke=ink, sw=1.8 * k, fill=WHITE)
+    _r(svg, x + 10 * k, y + 24 * k, 20 * k, 12 * k, fill="#fef3c7" if growth else "#f3f4f6", stroke="none", sw=0, rx=2 * k)
+    if growth:
+        for (dx, dy, r) in ((14, 28, 2.2), (20, 31, 1.8), (25, 27, 2.0), (17, 33, 1.5)):
+            _c(svg, x + dx * k, y + dy * k, r * k, fill=accent, stroke="none", sw=0)
+
+
+def site_pin(svg, x, y, s, ink=INK, fill=LIGHT):
+    """Specimen-site marker: a map pin."""
+    k = s / 40
+    _p(svg, f"M{x + 20 * k:.2f},{y + 37 * k:.2f} C{x + 20 * k:.2f},{y + 28 * k:.2f} {x + 33 * k:.2f},{y + 25 * k:.2f} "
+            f"{x + 33 * k:.2f},{y + 16 * k:.2f} a{13 * k:.2f},{13 * k:.2f} 0 1 0 {-26 * k:.2f},0 "
+            f"C{x + 7 * k:.2f},{y + 25 * k:.2f} {x + 20 * k:.2f},{y + 28 * k:.2f} {x + 20 * k:.2f},{y + 37 * k:.2f} Z",
+       stroke=ink, sw=1.8 * k, fill=fill)
+    _c(svg, x + 20 * k, y + 16 * k, 5 * k, fill=WHITE, stroke=ink, sw=1.6 * k)
+
+
+def fingerprint(svg, x, y, s, ink=INK):
+    """Traceability marker: nested fingerprint arcs."""
+    k = s / 40
+    for i, r in enumerate((5, 9.5, 14)):
+        _p(svg, f"M{x + (20 - r) * k:.2f},{y + 22 * k:.2f} a{r * k:.2f},{r * k:.2f} 0 0 1 {2 * r * k:.2f},0",
+           stroke=ink, sw=1.6 * k)
+        if i:
+            _p(svg, f"M{x + (20 - r) * k:.2f},{y + 22 * k:.2f} V{y + (22 + r * 0.7) * k:.2f} "
+                    f"M{x + (20 + r) * k:.2f},{y + 22 * k:.2f} V{y + (22 + r * 0.7) * k:.2f}", stroke=ink, sw=1.6 * k)
+    _p(svg, f"M{x + 20 * k:.2f},{y + 17 * k:.2f} V{y + 30 * k:.2f}", stroke=ink, sw=1.6 * k)
+
+
+def shield(svg, x, y, s, ink=INK, fill="#fef3c7"):
+    """Guardrail marker: a shield."""
+    k = s / 40
+    _p(svg, f"M{x + 20 * k:.2f},{y + 5 * k:.2f} L{x + 34 * k:.2f},{y + 11 * k:.2f} V{y + 22 * k:.2f} "
+            f"C{x + 34 * k:.2f},{y + 30 * k:.2f} {x + 27 * k:.2f},{y + 34 * k:.2f} {x + 20 * k:.2f},{y + 36 * k:.2f} "
+            f"C{x + 13 * k:.2f},{y + 34 * k:.2f} {x + 6 * k:.2f},{y + 30 * k:.2f} {x + 6 * k:.2f},{y + 22 * k:.2f} "
+            f"V{y + 11 * k:.2f} Z", stroke=ink, sw=1.8 * k, fill=fill)
+    _p(svg, f"M{x + 13 * k:.2f},{y + 20 * k:.2f} H{x + 27 * k:.2f}", stroke=ink, sw=1.8 * k)
+
+
+def no_entry(svg, cx, cy, s, color="#b91c1c", fill=WHITE):
+    """Blocked action: a circle with a bar."""
+    k = s / 40
+    _c(svg, cx, cy, 13 * k, fill=fill, stroke=color, sw=2.6 * k)
+    _p(svg, f"M{cx - 7 * k:.2f},{cy:.2f} H{cx + 7 * k:.2f}", stroke=color, sw=2.6 * k)
