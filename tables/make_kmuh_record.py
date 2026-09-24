@@ -3,7 +3,7 @@
 
 Reads the per-patient source workbooks (PHI; they stay OUTSIDE this repository, folder in
 KMUH_DIR) plus the registry workbook for the mNGS report of the same admission, and writes one
-de-identified artifact used by Fig. 4a, Results and Supplementary Note 6:
+de-identified artifact used by Fig. 3a, Results and Supplementary Note 6:
 
   figures-source/kmuh_record.csv       one row per aggregate quantity: metric, value, IQR, n, unit
   figures-source/kmuh_admissions.csv   one row per admission: results by modality, organisms by how many

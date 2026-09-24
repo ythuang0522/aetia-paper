@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Figure 4: what no single read-out can say, and the cases in which the record says it
-(figures/fig4_explanation.svg).
+"""Figure 3: what no single read-out can say, and the cases in which the record says it
+(figures/fig3_explanation.svg).
 
 Fifth design, 2026-09-21 (PI: "panel a reads like methodology instead of results; use the 32 KMUH
 admissions as the denominator").  Panel a is one wide panel built from the KMUH per-patient source
@@ -36,7 +36,7 @@ sys.path.insert(0, str(HERE))
 from svgkit import SVG, read_csv  # noqa: E402
 import icons as I  # noqa: E402
 
-OUT = HERE.parent / "figures" / "fig4_explanation.svg"
+OUT = HERE.parent / "figures" / "fig3_explanation.svg"
 W = 1000
 INK = "#1f2937"; INK2 = "#4b5563"; MUTED = "#6b7280"; HAIR = "#d1d5db"; GHOST = "#9ca3af"
 GREEN = "#15803d"; GREEN_T = "#dcfce7"; GREEN_E = "#86bf9e"

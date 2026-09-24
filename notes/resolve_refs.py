@@ -17,6 +17,8 @@ OUT = Path(__file__).resolve().parent.parent / "references.bib"
 
 # key -> DOI. Keep this list as the single source of truth for cited works.
 DOIS = {
+    "bossuyt2015stard": "10.1136/bmj.h5527",
+    "gallifant2025tripod": "10.1038/s41591-024-03425-5",
     "chiu2019clinical": "10.1038/s41576-019-0113-7",
     "gu2019clinical": "10.1146/annurev-pathmechdis-012418-012751",
     "wilson2019clinical": "10.1056/NEJMoa1803396",
@@ -54,6 +56,12 @@ DOIS = {
     "turpin2023language": "10.52202/075280-3275",
     "kapoor2023leakage": "10.1016/j.patter.2023.100804",
     "donnelly2020revision": "10.1093/cid/ciz1008",
+    # Introduction revision 2026-09-24: prior computational mNGS interpretation; airway colonizers
+    "mick2023integrated": "10.1172/jci165904",
+    "kalantar2022integrated": "10.1038/s41564-022-01237-2",
+    "luyt2007herpes": "10.1164/rccm.200609-1322OC",
+    "limaye2008cytomegalovirus": "10.1001/jama.300.4.413",
+    "meersseman2009significance": "10.1007/s00134-009-1482-8",
     # Methods: sequencing laboratory workflow and conventional assays (added 2026-09-20)
     "takahashi2026diagnostic": "10.3389/fcimb.2026.1823299",   # Asia Pathogenomics pipeline: AVITI, T2T-CHM13, database, control thresholds (Supp. Methods)
     "chou2025investigating": "10.3390/biomedicines13010142",    # KMUH BALF mNGS by Asia Pathogenomics: extraction, MGIEasy, DNBSEQ-G50RS; FilmArray at KMUH

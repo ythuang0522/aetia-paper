@@ -2,7 +2,7 @@
 """Registry analysis: what the mNGS report alone can and cannot settle.
 
 Reads the three-hospital registry workbook (PHI; stays OUTSIDE this repository, path in
-COHORT_XLSX) and writes three de-identified artifacts used by Fig. 4a,b, Results and Supplementary Note 6:
+COHORT_XLSX) and writes three de-identified artifacts used by the Results and Supplementary Note 6:
 
   figures-source/discordance.csv           one row per mNGS detection: specimen class, organism,
                                            read count, adjudicated status, conventional support

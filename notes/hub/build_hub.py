@@ -58,8 +58,12 @@ def main() -> None:
     shutil.copy(ROOT / "Supplementary.pdf", OUT / "supplementary.pdf")
     n_main = render_pages(ROOT / "main.pdf", "main")
     n_supp = render_pages(ROOT / "Supplementary.pdf", "supp")
-    figs = [("fig1", "fig1_overview"), ("fig2", "fig2_benchmark"), ("fig3", "fig3_llm_comparison"), ("fig4", "fig4_explanation"), ("ed1", "ed1_cohort_flow")]
-    fig_labels = {"fig1": "Fig. 1", "fig2": "Fig. 2", "fig3": "Fig. 3", "fig4": "Fig. 4", "ed1": "Extended Data Fig. 1"}
+    figs = [("fig1", "fig1_overview"), ("fig2", "fig2_benchmark"),
+            ("fig3", "fig3_explanation"), ("ed1", "ed1_cohort_flow"),
+            ("ed2", "ed2_registry"), ("ed3", "ed3_trajectory")]
+    fig_labels = {"fig1": "Fig. 1", "fig2": "Fig. 2", "fig3": "Fig. 3",
+                  "ed1": "Extended Data Fig. 1", "ed2": "Extended Data Fig. 2",
+                  "ed3": "Extended Data Fig. 3"}
     for short, name in figs:
         run("rsvg-convert", "-f", "png", "-z", "1.6", "-o", str(OUT / "figures" / f"{short}.png"), str(ROOT / "figures" / f"{name}.svg"))
 
@@ -78,10 +82,11 @@ def main() -> None:
 
     figcaps = {
         "fig1": "Overview of AETIA (concept-only redesign, 2026-09-21): language-model agents per read-out, a funnel of four rule-based filters with colonizer guardrails, a safety review that can flag but not pick, an evidence matrix for every candidate (articles read by a language model against a label-blind case card; sequencing, direct tests and colonization graded by rules), and the final rule that freezes the list before the explanation is written.",
-        "fig2": "Precision–recall plane and P/R/F1 against the raw mNGS report, FilmArray/GM and culture (n = 55); organism burden (n = 35).",
-        "fig3": "Precision–recall plane and P/R/F1 against four frontier language models prompted directly on identical data (n = 41).",
-        "fig4": "What no single read-out can say, and what the delivered record says (redesigned 2026-09-21): registry read counts of the ten species adjudicated both ways (colonization vs infection); the 17 adjudicated pathogens absent from the sequenced specimen and the culture, PCR, antigen or serology that found them within days; the delivered record for the two worked cases (presence vs fit to this patient); disposition of all 518 candidates.",
+        "fig2": "Combined performance figure: precision–recall planes and P/R/F1 for AETIA against individual diagnostic read-outs (n = 55) and four language models prompted directly on identical data (n = 41).",
+        "fig3": "Clinical evidence underlying individual pathogen-selection decisions: source-record complexity, worked evidence traces and the disposition of all 518 candidates.",
         "ed1": "Cohort flow from the 105-specimen registry to the 55-patient R5 cohort and the 41-patient direct-prompting cohort (Extended Data).",
+        "ed2": "Registry mNGS report burden by specimen and patient stratum, with organism-level culture agreement and class composition.",
+        "ed3": "Physiological trajectories after the mNGS specimen under conventional care; no patient in this analysis received AETIA.",
     }
     fig_html = "".join(
         f'<figure><img src="figures/{k}.png" alt="{fig_labels[k]}" loading="lazy"><figcaption><b>{fig_labels[k]}</b> {figcaps[k]}</figcaption></figure>'

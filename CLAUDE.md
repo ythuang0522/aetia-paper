@@ -16,9 +16,10 @@ Guidance for Claude Code when working in this folder (the paper only; pipeline c
 
 ## Non-negotiable conventions
 
-- **Every change that alters a PDF ends with a sync to the artifact link — no exceptions, no
-  asking** (PI's standing order, 2026-09-20). The sequence is: `make` (check
-  `grep -c undefined main.log Supplementary.log` is 0) → `python3 notes/hub/build_hub.py` →
+- **Update the hub artifact only when the PI asks** (PI's ruling, 2026-09-24; it replaces the
+  2026-09-20 "sync after every PDF change" order). After a PDF-changing edit, `make` and check
+  `grep -c undefined main.log Supplementary.log` is 0, then stop; do not build or publish the hub
+  unprompted. When asked, the sequence is: `python3 notes/hub/build_hub.py` →
   Artifact tool `list` with `scope: files` on `https://claude.ai/artifact/PB2BPxhvChugJsDavnGsKf`
   (required once per session before a republish; if the publish is still refused, the refusal
   returns the live page — merge and publish again) → publish `hub-build/index.html` with that `url`,
@@ -48,11 +49,14 @@ Guidance for Claude Code when working in this folder (the paper only; pipeline c
   separate documents). Current map: Extended Data Fig. 1 cohort flow (in main.tex, so `\ref{fig:ed1}` works); Supp. Tables 1 mNGS features,
   2 tiers/levels, 3 guardrails, 4 module thresholds, 5 models/prompts; Supp. Notes 1 review prompt,
   2 direct-prompting prompt, 3 cases, 4 version boundaries, 5 evaluation outputs, 6 registry analysis of the
-  sequencing report alone (the former "problem" figure's numbers). Re-check after any reordering.
-- **Figures (PI's rulings, 2026-09-21):** no figure belongs to the Introduction — motivation is text (the
+  sequencing report alone (the former "problem" figure's numbers); Supplementary Methods = sequencing workflow, conventional microbiology,
+  evidence modules A/A1/B–D, direct-prompting runs, then the four exploratory registry analyses (all moved out of Methods
+  2026-09-24 to hold Methods at ≤3,000 words by texcount; keep it there — add detail to the Supplementary Methods, not the Methods). Re-check after any reordering.
+- **Figures (PI's rulings, updated 2026-09-22):** no figure belongs to the Introduction — motivation is text (the
   registry numbers live in the Introduction and Supp. Note 6; `figures-source/retired/make_fig_problem.py`
-  is kept only for reference). Main figures are 1 overview, 2 benchmark, 3 direct-prompting comparison,
-  4 explained decisions (the Candida colonization-versus-infection pair, promoted from Extended Data;
+  is kept only for reference). Main figures are 1 overview, 2 the combined conventional-read-out and
+  direct-prompting performance comparison, and 3 explained decisions (the Candida
+  colonization-versus-infection pair, promoted from Extended Data;
   redesigned 2026-09-21 after the PI rejected a text-box version: **no prose boxes in figures** — encode as
   glyph matrices, node-link decision routes, bars; text only as labels and legends);
   the explainability result is a headline of the Results, placed right after the accuracy comparisons,
@@ -101,8 +105,8 @@ reordering.
    summary; Data and Code availability with request route, licence and Zenodo DOI). Consolidate
    repeated `\todo`s (e.g. one "confirm model identifiers against run manifests" in the Overview
    instead of one per mention).
-4. Code-verified facts to state without `\todo`: formatter, agents and safety review use `gpt-5` at
-   temperature 1; article judge, case-fit and rationale use `gpt-5.6-luna` at reasoning effort low;
+4. Code-verified facts to state without `\todo`: formatter (`gpt-5`, temperature 1, hard-coded) and agents use `gpt-5`;
+   the safety review uses `gpt-5` at reasoning medium (config template) — the Methods once said Luna for both formatter and review, which was wrong; article judge, case-fit and rationale use `gpt-5.6-luna` at reasoning effort low;
    direct prompting uses reasoning effort medium, 4,000 output tokens; PubMed cutoff 2026-06-30;
    evidence window 2 days (template default — keep its `\todo` until the run manifest is seen).
 5. Fig. 2 burden panels are **c,d** (a,b are the precision–recall plane and bars); the Methods once
@@ -120,4 +124,3 @@ reordering.
    confirms; flag the rest with `\todo` naming file:line on both sides; do not adopt chart elements
    the code contradicts (Picked→Guardrails ordering). Heredocs that write Markdown with backticks
    must be quoted (`<<'PY'`) or the shell eats the code spans.
-

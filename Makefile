@@ -2,7 +2,7 @@
 COHORT_XLSX ?= ../三院-final-mNGS merged file.xlsx
 PY ?= python3
 
-FIGS = figures/fig1_overview.pdf figures/fig2_benchmark.pdf figures/fig3_llm_comparison.pdf figures/fig4_explanation.pdf figures/ed1_cohort_flow.pdf figures/ed2_registry.pdf figures/ed3_trajectory.pdf
+FIGS = figures/fig1_overview.pdf figures/fig2_benchmark.pdf figures/fig3_explanation.pdf figures/ed1_cohort_flow.pdf figures/ed2_registry.pdf figures/ed3_trajectory.pdf
 
 all: main.pdf Supplementary.pdf
 
@@ -33,11 +33,8 @@ figures-source/trajectory.csv: tables/make_trajectory.py
 figures/fig1_overview.svg: figures-source/make_fig_overview.py figures-source/svgkit.py figures-source/icons.py
 	$(PY) figures-source/make_fig_overview.py
 
-figures/fig2_benchmark.svg: figures-source/make_fig_benchmark.py figures-source/svgkit.py figures-source/metrics.csv figures-source/burden.csv
+figures/fig2_benchmark.svg: figures-source/make_fig_benchmark.py figures-source/svgkit.py figures-source/metrics.csv
 	$(PY) figures-source/make_fig_benchmark.py
-
-figures/fig3_llm_comparison.svg: figures-source/make_fig_llm.py figures-source/svgkit.py figures-source/metrics.csv
-	$(PY) figures-source/make_fig_llm.py
 
 figures/ed1_cohort_flow.svg: figures-source/make_figED1.py figures-source/svgkit.py
 	$(PY) figures-source/make_figED1.py
@@ -50,7 +47,9 @@ figures/ed2_registry.svg: figures-source/make_figED2.py figures-source/svgkit.py
 figures/ed3_trajectory.svg: figures-source/make_figED3.py figures-source/svgkit.py figures-source/trajectory_summary.json
 	$(PY) figures-source/make_figED3.py
 
-figures/fig4_explanation.svg: figures-source/make_fig_explain.py figures-source/svgkit.py
+figures/fig3_explanation.svg: figures-source/make_fig_explain.py figures-source/svgkit.py figures-source/icons.py \
+	figures-source/discordance_summary.json figures-source/discordance.csv figures-source/sampling.csv \
+	figures-source/kmuh_record.csv figures-source/kmuh_admissions.csv figures-source/kmuh_latency.csv
 	$(PY) figures-source/make_fig_explain.py
 
 figures/%.pdf: figures/%.svg

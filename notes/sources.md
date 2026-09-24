@@ -12,8 +12,8 @@ workbook stay in `../` and are never copied into this repository.
 | Slide | Content | Used in | Status |
 |---|---|---|---|
 | 1 | Title; presenters 吳昱承, 張鈞婷, 鐘元廷 (PDF author metadata: 葉元婷) | author block: Chun-Ting Chang, Yuan-Ting Chung, Yu-Cheng Wu (CCU), after the three clinicians; 葉元婷 is not an author (professor, 2026-09-20) | settled |
-| 2 | "最終指標結果": Multimodal Diagnosis P 71.6 / R 91.4 / F1 80.3; mNGS 8.0 / 93.1 / 14.8; FilmArray/GM 67.6 / 39.7 / 50.0; Culture 48.1 / 43.1 / 45.5 | abstract, Results §2, Fig. 2a, `figures-source/metrics.csv` (r5_55) | slide-only → needs eval JSON. Cohort assumed = 55-case R5 delivery (docs/VALIDATION.md); baseline definitions (what counts as an mNGS/FilmArray/culture "prediction") not in the public code |
-| 3 | "模型比較": 上游+AETIA R5 R 90.79 / P 71.62 / F1 77.53; GPT Sol 57.89 / 67.69 / 62.41; Luna 57.89 / 69.84 / 63.31; Terra 56.58 / 70.49 / 62.77; Astra 60.53 / 67.65 / 63.89 | Results §3, Fig. 3, `metrics.csv` (direct_raw_41) | slide-only → needs eval JSON. **Discrepancy:** docs/VALIDATION.md gives AETIA on the 41 = TP 69 / FP 33 / FN 7 → P 67.65, R 90.79, F1 77.53. Recall and F1 match the slide; precision does not (71.62 = the 55-case value). Draft uses 67.65 with `\todo` |
+| 2 | "最終指標結果": Multimodal Diagnosis P 71.6 / R 91.4 / F1 80.3; mNGS 8.0 / 93.1 / 14.8; FilmArray/GM 67.6 / 39.7 / 50.0; Culture 48.1 / 43.1 / 45.5 | abstract, Results §2, Fig. 2a,b, `figures-source/metrics.csv` (r5_55) | slide-only → needs eval JSON. Cohort assumed = 55-case R5 delivery (docs/VALIDATION.md); baseline definitions (what counts as an mNGS/FilmArray/culture "prediction") not in the public code |
+| 3 | "模型比較": 上游+AETIA R5 R 90.79 / P 71.62 / F1 77.53; GPT Sol 57.89 / 67.69 / 62.41; Luna 57.89 / 69.84 / 63.31; Terra 56.58 / 70.49 / 62.77; Astra 60.53 / 67.65 / 63.89 | Results §3, Fig. 2c,d, `metrics.csv` (direct_raw_41) | slide-only → needs eval JSON. **Discrepancy:** docs/VALIDATION.md gives AETIA on the 41 = TP 69 / FP 33 / FN 7 → P 67.65, R 90.79, F1 77.53. Recall and F1 match the slide; precision does not (71.62 = the 55-case value). Draft uses 67.65 with `\todo` |
 | 4 | "最終輸出": simple version (hospital, patient ID, selected pathogens, reasons) and reasoning version (patient data → candidates → consider/exclude reasons → case & literature evidence → source check → final ranking) | Fig. 1d, Methods "Rationale generation and delivery" | code-verified (`OBER_patient_delivery/export_delivery.mjs`, `docs/WORKFLOW.md` §4) |
 | 5 | Exhibition questions (poster content; interactive demo) | — | not used |
 | 6 | Thanks | — | — |
@@ -23,13 +23,13 @@ workbook stay in `../` and are never copied into this repository.
 | Slide | Content | Used in | Status |
 |---|---|---|---|
 | 14 | "Multi-Agent Infectious Diagnosis": X-ray/CT/MRI, blood counts, inflammatory markers, GM test, PCR/FilmArray, patient history, mNGS → Image / CBC / IM / GM / PCR / Patient / NGS agents → clinical-contextualized diagnosis agent ↔ PubMed reflection → clinical-contextualized reasoning; collaboration KMUH, TVGH, TSGH | Fig. 1a framing; intro | concept slide; agent names mapped to the actual prompts in `upstream/agents/prompts/` (Image, CBC/Lab/underlying, FilmArray+GM, molecular, culture, mNGS-to-specimen) |
-| 15 | ICU patients n = 35: positive rate Culture 24.2 % (avg 3.16 species), FilmArray 63.6 % (3.00), mNGS 100 % (5.76), Agentic Dx 100 % (1.97); case vignettes: patient #23 *K. pneumoniae* (CT bilateral consolidations + pleural effusions; CRP peak; hypoxaemia; 68,569 reads) vs *C. albicans* commensal; patient #20 *C. tropicalis* (multiple positive blood cultures; high BALF reads; cross-specimen support). Credit: Dr. Chang, KMUH | Fig. 2c,d (`figures-source/burden.csv`), Results §§2 and 4, Fig. 4e,f (`figures-source/make_fig_explain.py`), Fig. 1d worked entry (`make_fig_overview.py`, qualitative labels only, no read count), Supplementary Note 3 | slide-only; earlier prototype ("Agentic Dx"); relation to the 55/41 cohorts unconfirmed; vignettes must be regenerated from AETIA R5 outputs and approved for publication. The evidence items shown on the cards (rule path, module values, per-modality support and opposition, article identifiers, input hashes) are code-verified fields of the delivered record (`OBER_patient_delivery/export_delivery.mjs`, `generate_r5_final_decisions.py`), not slide content |
+| 15 | ICU patients n = 35: positive rate Culture 24.2 % (avg 3.16 species), FilmArray 63.6 % (3.00), mNGS 100 % (5.76), Agentic Dx 100 % (1.97); case vignettes: patient #23 *K. pneumoniae* (CT bilateral consolidations + pleural effusions; CRP peak; hypoxaemia; 68,569 reads) vs *C. albicans* commensal; patient #20 *C. tropicalis* (multiple positive blood cultures; high BALF reads; cross-specimen support). Credit: Dr. Chang, KMUH | Results §4, Fig. 3e,f (`figures-source/make_fig_explain.py`), Fig. 1d worked entry (`make_fig_overview.py`, qualitative labels only, no read count), Supplementary Note 3 | slide-only; earlier prototype ("Agentic Dx"); relation to the 55/41 cohorts unconfirmed; vignettes must be regenerated from AETIA R5 outputs and approved for publication. The earlier burden comparison is retained in `figures-source/burden.csv` for provenance but is no longer plotted. The evidence items shown on the cards (rule path, module values, per-modality support and opposition, article identifiers, input hashes) are code-verified fields of the delivered record (`OBER_patient_delivery/export_delivery.mjs`, `generate_r5_final_decisions.py`), not slide content |
 
-## KMUH per-patient record (Fig. 4a; Results §4; Methods)
+## KMUH per-patient record (Fig. 3a; Results §4; Methods)
 
 `tables/make_kmuh_record.py` reads the per-patient source workbooks in `../KMUH patients` (PHI, folder
 in `KMUH_DIR`) plus the registry `mNGS` sheet and writes `figures-source/kmuh_record.csv` (one row per
-aggregate: metric, median, IQR, n, unit). Status: **code-verified** — every number in Fig. 4a is
+aggregate: metric, median, IQR, n, unit). Status: **code-verified** — every number in Fig. 3a is
 recomputed from those workbooks. Linkage: `NGS patient N` ↔ registry `K{N:03d}`; the mNGS specimen date
 falls inside the recorded admission in 33 of 35 datable cases (K016 12 days after the recorded
 discharge, K020 a month before the recorded admission — both look like a second admission that the
@@ -37,7 +37,7 @@ admission sheet does not carry). Analysis set 32 of 36 workbooks: patient 7 has 
 imaging or panel data; patient 11 is annotated `同 patient 9`; patients 26 and 27 are byte-identical to
 25. In each duplicate group the registry holds a *separate* mNGS specimen for the same admission
 (K009/K011, K025/K026/K027), i.e. the admission was sequenced two or three times; counted once.
-Fig. 4a-c are drawn from two long-format files written by the same script: `kmuh_admissions.csv` (one row per admission: results by modality, organisms split by how many read-outs named them, record span, word count; ordered by organism count so the row order carries no patient identity) and `kmuh_latency.csv` (one row per culture report: outcome and hours to the final report). Headline aggregates: 247 results per admission (IQR 214–263), 31-day record, new result on 16 days,
+Fig. 3a-c are drawn from two long-format files written by the same script: `kmuh_admissions.csv` (one row per admission: results by modality, organisms split by how many read-outs named them, record span, word count; ordered by organism count so the row order carries no patient identity) and `kmuh_latency.csv` (one row per culture report: outcome and hours to the final report). Headline aggregates: 247 results per admission (IQR 214–263), 31-day record, new result on 16 days,
 1,452 words of free text; 8 organisms per admission (IQR 6–11), 270 organism–admission pairs, 81 %
 named by one read-out (mNGS alone 48 %, culture alone 23 %, panel/GM alone 11 %), 91 % with no
 sterile-site culture; 254 culture reports, 72 % positive, no-growth reported at a median 147 h against
@@ -48,7 +48,7 @@ negative once antimicrobials start" argument is **not** supported by this cohort
 written as if it were; mortality flags (16/30 coded N/N), length of stay (14 discharge dates) and the
 admission-versus-discharge diagnosis shift (81 % by a keyword rule) were computed but are **not** used.
 
-## Registry analysis (Fig. 4a; Introduction; Supplementary Note 6)
+## Registry analysis (Introduction; Supplementary Note 6)
 
 `tables/make_discordance.py` reads the workbook below and writes `figures-source/discordance.csv`
 (one de-identified row per mNGS detection: specimen class, organism, reads, adjudicated status,
@@ -70,7 +70,7 @@ were added, which moved one pathogen from "found by no test" to "found by serolo
 Read-out class is inferred from the result string (IgM/IgG/Ab → serology; galactomannan/Ag → antigen;
 culture sheet → culture; otherwise PCR, which covers multiplex panels, viral loads and targeted assays).
 
-Added 2026-09-21 (second pass, folded Fig. 4a): `figures-source/sampling.csv`, one aggregate row per
+Added 2026-09-21 (second pass, folded explanation figure): `figures-source/sampling.csv`, one aggregate row per
 read-out lane (mNGS / culture / targeted) over all 105 registry specimens — number of dated tests,
 share of patients in which the lane named any organism, median and IQR (and 5th–95th centile) of the
 collection day relative to the mNGS specimen, share collected within two days of it, and median/IQR
@@ -205,7 +205,7 @@ studies pool their flow. Rebuilt as a single STARD spine — registry 105 → st
 delivery cohort 55 → direct-prompting 41 — with the per-hospital contribution annotated at every node and
 exclusions branching right with n and reason (24 / 26 / 14). The two lines differ only in where their
 adjudication is stored and how records were assembled, which is provenance and now lives in Methods text.
-The 35-patient ICU series is drawn detached, because it is not part of this flow.
+The earlier 35-patient ICU series is not part of this flow or of the combined performance figure.
 
 **Undocumented exclusion, surfaced by the PI the same day.** The real criterion excluded patients whose
 ultimate diagnosis was infection at another site (e.g. UTI) or no infection. The Methods had said only
@@ -270,3 +270,20 @@ as a correct answer, reporting specificity on that stratum. The 22 specimens wit
 1. Read it (pptx via the `pptx` skill; pdf via the Read tool). 2. Add one row per slide above.
 3. If it carries numbers, add them to `figures-source/metrics.csv` (or a new CSV) with `source` and
 `verified=no`, then regenerate (`make figures`). 4. Update the text and the README ledger.
+
+## Cohort exclusion criteria clarified by the PI (2026-09-22)
+
+The PI identified two reasons for exclusion: essential clinical data were missing or insufficiently documented (for example, chest imaging, complete blood counts or microbiological investigations), preventing multimodal evaluation; or the final clinical diagnosis was not pneumonia, including upper respiratory tract infection without pneumonia. Methods and the cohort-flow caption now distinguish these reasons. No exclusion counts or modality-specific completeness thresholds were supplied; the existing count placeholders remain.
+
+## Methods review, code facts adopted (2026-09-24)
+
+| Fact | Source | Used in | Status |
+|---|---|---|---|
+| Formatter = gpt-5, temperature 1 (hard-coded) | `upstream/core/llm_parser.py:114-115`; `frontend/pipeline.py:260` | Methods, Data extraction; Supp. Table 5 | code |
+| Safety review = gpt-5, reasoning medium | `review_missed_mngs_candidates.py:22`; config template `missed_review` | Methods, Safety review; Supp. Table 5 | code (run metadata not seen) |
+| Label revisions applied to frozen predictions, rescored offline | `LLM_test/direct_raw_benchmark/rescore_gold_corrections_20260912.py` | Methods, Reference standard | code |
+| Direct prompting: store=False, strict schema, 2 retries with back-off, stored model/usage/timestamp | `direct_raw_runner.py:585-617, 696-715, 778` | Methods, Ethics and Direct prompting | code |
+| Direct prompting: dates replaced by relative days, exact-date check blocks payload | `direct_raw_runner.py:253-337`; `prepare_corrected_reruns.py` preflight | Methods, Ethics | code |
+| 22 of 41 re-queried after input-linkage fix (Sol, Luna, Terra); 19 reused after hash checks; Astra run after fix | `prepare_corrected_reruns.py` (EXPECTED_CHANGED), `astra_batch.py` | Methods, Direct prompting | code |
+| Set-based scoring, empty prediction → precision 0 in macro, broad labels unmatched | `evaluate_direct_raw.py:12-105, 238-243` | Methods, Outcome measures | code |
+| Replay: selected sets 55/55, levels changed 15, order 5 | Supp. Note 4; `docs/UPSTREAM_REPLAY_SUMMARY.json` | Methods, Computational reproducibility | repo doc |

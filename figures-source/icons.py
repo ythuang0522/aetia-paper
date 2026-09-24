@@ -158,16 +158,21 @@ def fungus(svg, cx, cy, s, ink=INK, fill=LIGHT):
 
 
 def virus(svg, cx, cy, s, ink=INK, fill=LIGHT):
-    """Spiked spherical virion."""
+    """Icosahedral virion: hexagonal capsid with knobbed spikes at the vertices.
+
+    Drawn angular on purpose so it cannot be read as the round, toothed rule cog."""
     k = s / 40
-    for i in range(12):
-        a = math.radians(i * 30)
-        x1, y1 = cx + 8 * k * math.cos(a), cy + 8 * k * math.sin(a)
-        x2, y2 = cx + 13 * k * math.cos(a), cy + 13 * k * math.sin(a)
-        _p(svg, f"M{x1:.2f},{y1:.2f} L{x2:.2f},{y2:.2f}", stroke=ink, sw=1.4 * k)
-        _c(svg, x2, y2, 1.5 * k, fill=ink, stroke="none", sw=0)
-    _c(svg, cx, cy, 8.5 * k, fill=fill, stroke=ink, sw=1.7 * k)
-    _c(svg, cx - 2 * k, cy - 1 * k, 2 * k, fill=ink, stroke="none", sw=0)
+    verts = [(cx + 10 * k * math.cos(math.radians(a)), cy + 10 * k * math.sin(math.radians(a)))
+             for a in range(-90, 270, 60)]
+    for vx, vy in verts:
+        ux, uy = (vx - cx) / (10 * k), (vy - cy) / (10 * k)
+        _p(svg, f"M{vx:.2f},{vy:.2f} L{cx + 15 * k * ux:.2f},{cy + 15 * k * uy:.2f}", stroke=ink, sw=1.5 * k)
+        _c(svg, cx + 16.5 * k * ux, cy + 16.5 * k * uy, 2.3 * k, fill=ink, stroke="none", sw=0)
+    d = "M" + " L".join(f"{vx:.2f},{vy:.2f}" for vx, vy in verts) + " Z"
+    _p(svg, d, stroke=ink, sw=1.8 * k, fill=fill)
+    # inner facets
+    inner = "".join(f"M{cx:.2f},{cy:.2f} L{vx:.2f},{vy:.2f} " for vx, vy in verts[::2])
+    _p(svg, inner, stroke=ink, sw=1.0 * k)
 
 
 def yeast(svg, cx, cy, s, ink=INK, fill=LIGHT):
@@ -355,3 +360,38 @@ def no_entry(svg, cx, cy, s, color="#b91c1c", fill=WHITE):
     k = s / 40
     _c(svg, cx, cy, 13 * k, fill=fill, stroke=color, sw=2.6 * k)
     _p(svg, f"M{cx - 7 * k:.2f},{cy:.2f} H{cx + 7 * k:.2f}", stroke=color, sw=2.6 * k)
+
+
+def dna(svg, x, y, s, ink=INK, accent="#7c3aed"):
+    """Targeted molecular assay: a tube holding a short double helix."""
+    k = s / 40
+    _p(svg, f"M{x + 12 * k:.2f},{y + 6 * k:.2f} V{y + 30 * k:.2f} A{8 * k:.2f},{8 * k:.2f} 0 0 0 {x + 28 * k:.2f},{y + 30 * k:.2f} V{y + 6 * k:.2f}",
+       stroke=ink, sw=1.8 * k, fill=WHITE)
+    _r(svg, x + 10 * k, y + 3 * k, 20 * k, 5 * k, fill="#9ca3af", stroke=ink, sw=1.3 * k, rx=1.5 * k)
+    pts_a, pts_b = [], []
+    for i in range(13):
+        t = i / 12
+        yy = y + (11 + t * 24) * k
+        off = 5.5 * k * math.sin(t * 2 * math.pi * 1.25)
+        pts_a.append((x + 20 * k + off, yy)); pts_b.append((x + 20 * k - off, yy))
+    for i in (1, 4, 7, 10):
+        _p(svg, f"M{pts_a[i][0]:.2f},{pts_a[i][1]:.2f} L{pts_b[i][0]:.2f},{pts_b[i][1]:.2f}", stroke="#9ca3af", sw=1.0 * k)
+    for pts in (pts_a, pts_b):
+        _p(svg, "M" + " L".join(f"{px:.2f},{py:.2f}" for px, py in pts), stroke=accent, sw=1.6 * k)
+
+
+def clock(svg, x, y, s, ink=INK, fill=WHITE):
+    """Timing marker: a clock face."""
+    k = s / 40
+    _c(svg, x + 20 * k, y + 20 * k, 15 * k, fill=fill, stroke=ink, sw=2.2 * k)
+    _p(svg, f"M{x + 20 * k:.2f},{y + 11 * k:.2f} V{y + 20 * k:.2f} L{x + 27 * k:.2f},{y + 24 * k:.2f}", stroke=ink, sw=2.2 * k)
+
+
+def unknown(svg, cx, cy, s, color="#d97706"):
+    """Open circle with a question mark (possible, not established)."""
+    k = s / 40
+    _c(svg, cx, cy, 12 * k, fill=WHITE, stroke=color, sw=2.6 * k)
+    # question mark as a stroked path (not text), so no glyph falls below the print minimum
+    _p(svg, f"M{cx - 4 * k:.2f},{cy - 3.5 * k:.2f} a{4 * k:.2f},{4 * k:.2f} 0 1 1 {5.5 * k:.2f},{3.7 * k:.2f} "
+            f"c{-1.5 * k:.2f},{0.8 * k:.2f} {-1.5 * k:.2f},{1.8 * k:.2f} {-1.5 * k:.2f},{3.3 * k:.2f}", stroke=color, sw=2.6 * k)
+    _c(svg, cx, cy + 7 * k, 1.6 * k, fill=color, stroke="none", sw=0)

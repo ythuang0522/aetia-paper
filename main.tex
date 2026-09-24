@@ -88,13 +88,13 @@ Distinguishing causative pathogens from incidental microbial detections remains 
 
 \begin{figure}[p]
  \centering
- \includegraphics[width=0.8\textwidth]{fig1_overview}
+ \includegraphics[width=\textwidth]{fig1_overview}
  \caption{\textbf{Overview of \toolname.}
- Violet chip, language-model step (extracts, judges or explains; never decides); cog, deterministic rule (decides).
- \textbf{a}, Each read-out is parsed by a dedicated language-model agent into a fixed schema of organism-specific evidence, host status and specimen context; glyphs indicate the information available to each agent. Agents receive neither other read-outs nor reference labels.
- \textbf{b}, Every organism on the \mngs report (bars, reads) is assessed by four filters. Prespecified guardrails exclude colonizers and reactivated viruses (crossed glyphs). Selections are ordered once; the safety review may flag unselected organisms but cannot select them.
- \textbf{c}, Evidence matrix with one row per candidate. Up to ten PubMed articles are assessed against a label-blind case summary and classified by rule as strong, partial or neither (one dot per article). Additional columns show sequencing burden and dominance, exact-species direct tests by specimen and colonization status.
- \textbf{d}, A candidate is selected by any of three criteria (brace): passage through all filters and guardrails in \textbf{b}; isolation of the same species from a sterile site or tissue; or matching published cases together with anatomical agreement and a high or dominant read count. Dashed symbols indicate criteria not met by any candidate. The list is fixed before explanation generation. The delivered record reports each organism's disposition and the findings supporting it; explanatory text cannot add, remove or reorder organisms. Methods and Supplementary Tables~1--4. \todo{d: prototype vignette (Fig.~\ref{fig:explain}e); regenerate from the delivered record and approve.}}
+ Violet chip, language-model step (extracts or judges evidence, or writes the clinical rationale; never selects); cog, deterministic rule. One schematic patient with seven detections is followed through all panels.
+ \textbf{a}, Seven modality-specific language-model agents turn the record into structured evidence for each organism.
+ \textbf{b}, Rules grade \mngs detections and conventional-test results, merge them into one candidate pool and hold back likely colonizers; a language-model safety review flags unpicked organisms but cannot select them. Two organisms are Picked, two Flagged and three held back.
+ \textbf{c}, Each Picked or Flagged organism receives an evidence profile, not a decision: one verdict per PubMed article matched to the patient's site, host and timing; read count and dominance over the next organism; conventional tests by specimen class; and site relevance. Bars are schematic.
+ \textbf{d}, Picked organisms are kept. A Flagged organism is added only if the same organism is isolated from a sterile site or tissue (here, a mycobacterium in pleural-fluid culture) or if literature, site and sequencing all agree (not met by the mould). The list is fixed before a language model writes the clinical rationale; the \textit{K.~pneumoniae} entry is drawn from a prototype vignette (Fig.~3e) and is not a delivered record. Criteria are defined in Methods and Supplementary Tables~1--4.}
  \label{fig:overview}
 \end{figure}
 
@@ -104,29 +104,20 @@ Distinguishing causative pathogens from incidental microbial detections remains 
 \begin{figure}[p]
  \centering
  \includegraphics[width=0.9\textwidth]{fig2_benchmark}
- \caption{\textbf{Pathogen selection compared with the raw \mngs report, \filmarray/galactomannan and culture.}
+ \caption{\textbf{Pathogen selection compared with individual read-outs and directly prompted language models.}
  \textbf{a}, Precision against recall for \toolname (blue) and for each read-out taken at face value: all organisms in the \mngs report (triangle), all positive \filmarray or galactomannan targets (square) and all cultured organisms (diamond); dashed curves, constant F1.
  \textbf{b}, The same comparison as precision, recall and F1. $n=55$ patients (\kmuh 30; \tvgh and \tsgh 25); unit, (patient, organism) pair at species level; reference standard, physician-adjudicated pathogens (Methods).
- \textbf{c},\textbf{d}, Earlier intensive-care series (\kmuh, $n=35$; first pipeline version): fraction of patients with at least one reported organism (\textbf{c}) and mean organisms per patient (\textbf{d}).}
+ \textbf{c}, Precision against recall for \toolname and four general-purpose language models prompted directly with the same de-identified \mngs and clinical record; marker shapes identify the models.
+ \textbf{d}, The same model comparison as precision, recall and F1. $n=41$ patients (\kmuh 30; \tvgh and \tsgh 11); micro-averaged over (patient, organism) pairs. Each model received one prompt and a JSON schema, without retrieval or reference labels (Methods; Supplementary Note~2). \toolname values are from the frozen decisions on the same patients (TP~69, FP~33, FN~7).}
  \label{fig:benchmark}
 \end{figure}
 
 \begin{figure}[p]
- \centering
- \includegraphics[width=0.9\textwidth]{fig3_llm_comparison}
- \caption{\textbf{Comparison with general-purpose language models prompted directly on the same data.}
- \gptsol, \gptluna, \gptterra and \gptastra received the same de-identified record, comprising the laboratory \mngs report with per-organism read counts, cultures, \filmarray, galactomannan, molecular tests, imaging reports, blood counts and diagnoses. Each model received one prompt and a JSON schema, without retrieval or reference labels (Methods; Supplementary Note~2).
- \textbf{a}, Precision against recall; \toolname in blue, models in grey (marker key in panel); dashed curves, constant F1.
- \textbf{b}, Precision, recall and F1. $n=41$ patients (\kmuh 30; \tvgh and \tsgh 11); micro-averaged over (patient, organism) pairs; \toolname values from the frozen pipeline decisions on the same patients (TP~69, FP~33, FN~7).}
- \label{fig:llm}
-\end{figure}
-
-\begin{figure}[p]
   \centering
-  \includegraphics[width=\textwidth]{fig4_explanation}
+  \includegraphics[width=\textwidth]{fig3_explanation}
   \caption{\textbf{Clinical evidence underlying individual pathogen-selection decisions.}
- \textbf{a--d}, Analysis of 32 \kmuh admissions with available source workbooks; admissions sequenced more than once were counted once. \textbf{a}, Number of recorded results per admission by modality, compared with the single \mngs report (median 247, IQR 214--263; new results recorded on 16 of 31 days). \textbf{b}, Organisms named per admission (median 8, IQR 6--11). Each bar represents one admission and shading indicates the number of read-outs that named an organism. Of 270 organism--admission pairs, 81\% were named by one read-out and 91\% were never isolated from a sterile site. \textbf{c}, Cumulative percentage of 254 culture reports issued by day and outcome. The median reporting time was 6 days for no growth and 3 days for growth. \textbf{d}, Wording of 365 chest-imaging reports: 39\% qualified a finding of pneumonia, infiltrate or consolidation, 51\% reported such a finding without qualification and 10\% used none of these terms. Qualifying terms are defined in Methods.
- \textbf{e--g}, Delivered records for three cases, with one glyph per evidence source and the decision and supporting evidence fixed before explanation generation. \textbf{e}, \textit{Candida albicans} classified as airway colonization and \textit{Klebsiella pneumoniae} selected from the same lavage specimen. \textbf{f}, \textit{Candida tropicalis} selected because blood cultures grew the same species (overridden guardrail, ringed). \textbf{g}, Registry pathogen absent from the sequenced specimen and retained for review on the basis of IgM serology.
+ \textbf{a--d}, Analysis of 32 \kmuh admissions with available source workbooks; admissions sequenced more than once were counted once. \textbf{a}, Number of recorded results per admission by modality, compared with the single \mngs report (median 247, IQR 214--263; new results recorded on 16 of 31 days). \textbf{b}, Organisms named per admission (median 8, IQR 6--11). Each bar represents one admission and shading indicates the number of read-outs that named an organism. Of 270 organism--admission pairs, 81\% were named by one read-out and 91\% were never isolated from a sterile site. \textbf{c}, Cumulative percentage of 254 culture reports issued by day and outcome. The median reporting time was 6 days for no growth and 3 days for growth. \textbf{d}, Wording of 365 chest-imaging reports: 39\% qualified a finding of pneumonia, infiltrate or consolidation, 51\% reported such a finding without qualification and 10\% used none of these terms. Qualifying terms are defined in the Supplementary Methods.
+ \textbf{e--g}, Delivered records for three cases, with one glyph per evidence source and the decision and supporting evidence fixed before the clinical rationale was written. \textbf{e}, \textit{Candida albicans} classified as airway colonization and \textit{Klebsiella pneumoniae} selected from the same lavage specimen. \textbf{f}, \textit{Candida tropicalis} selected because blood cultures grew the same species (overridden guardrail, ringed). \textbf{g}, Registry pathogen absent from the sequenced specimen and retained for review on the basis of IgM serology.
  \textbf{h}, Disposition of 518 organisms in 55 patients: 114 selected by the deterministic rules, 9 added by traced evidence and 395 excluded with a recorded reason.
  \todo{Panels e and f use the two prototype vignettes of the 2026-01-17 talk; regenerate from the delivered pipeline records and obtain case-level approval.}}
   \label{fig:explain}
@@ -152,7 +143,7 @@ Distinguishing causative pathogens from incidental microbial detections remains 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{ed1_cohort_flow}
-  \caption{\textbf{Cohort flow.} A single pooled flow from the three-hospital \mngs registry to the two evaluation cohorts, with the contribution of each hospital given at every node and exclusions branching to the right. The two hospital lines differ in where their adjudication is stored and in how their standardized records were assembled, which is a matter of data provenance rather than of eligibility (Methods). Amber, exclusion steps; the criteria for the two-hospital steps are incompletely documented in the source materials \todo{state the 54 $\rightarrow$ 48 $\rightarrow$ 25 reasons, and the number of patients excluded because the final diagnosis was not pulmonary infection}. Dashed grey, the earlier 35-patient intensive-care series used for the organism-burden comparison (Fig.~\ref{fig:benchmark}c,d), which is not part of this flow and whose overlap with the evaluation cohorts is \todo{unconfirmed}. Counts from the repository's cohort validation of 2026-09-18.}
+  \caption{\textbf{Cohort flow.} A single pooled flow from the three-hospital \mngs registry to the two evaluation cohorts, with the contribution of each hospital given at every node and exclusions branching to the right. The two hospital lines differ in where their adjudication is stored and in how their standardized records were assembled, which is a matter of data provenance rather than of eligibility (Methods). Amber, exclusion steps. Patients were excluded for insufficient essential clinical data or a final adjudicated diagnosis other than pneumonia (Methods); the allocation of these reasons to the two-hospital steps remains incompletely documented \todo{state the 54 $\rightarrow$ 48 $\rightarrow$ 25 reasons, and the number of patients excluded for each reason}. Counts from the repository's cohort validation of 2026-09-18.}
   \label{fig:ed1}
 \end{figure}
 
@@ -166,7 +157,7 @@ Distinguishing causative pathogens from incidental microbial detections remains 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{ed3_trajectory}
-  \caption{\textbf{The course after the sequencing report, under conventional care.} The 48 \kmuh admissions with complete machine-readable discharge records (31 deaths, 17 survivors); day~0 is the \mngs specimen. No patient in this analysis received \toolname: these are the trajectories of routine care that motivate the work. \textbf{a}, One row per admission, grouped by outcome and ordered by length of admission. Left, the highest temperature recorded in each window after the specimen; right, the days of admission that followed it. The temperature block empties from left to right in both groups: fever resolves whether or not the admission ends in death. \textbf{b}, The same temperatures as the proportion of patients reaching 38\,\textdegree C, with the number contributing to each point. \textbf{c}, Counted per patient rather than per window, for the patients who died: whether each marker improved by day 3--7 and whether the improvement held to day 8--30. Temperature and oxygenation improved in most and reversed in about half; platelets, which tracked the outcome, improved in 2 of 14. Windows are $-14$ to $-1$, 0--2, 3--7, 8--14 and 15--30 days. Antipyretics, corticosteroids, sedation and ventilator settings act on these variables and are not adjusted for; no causal claim is made (Methods).}
+  \caption{\textbf{The course after the sequencing report, under conventional care.} The 48 \kmuh admissions with complete machine-readable discharge records (31 deaths, 17 survivors); day~0 is the \mngs specimen. No patient in this analysis received \toolname: these are the trajectories of routine care that motivate the work. \textbf{a}, One row per admission, grouped by outcome and ordered by length of admission. Left, the highest temperature recorded in each window after the specimen; right, the days of admission that followed it. The temperature block empties from left to right in both groups: fever resolves whether or not the admission ends in death. \textbf{b}, The same temperatures as the proportion of patients reaching 38\,\textdegree C, with the number contributing to each point. \textbf{c}, Counted per patient rather than per window, for the patients who died: whether each marker improved by day 3--7 and whether the improvement held to day 8--30. Temperature and oxygenation improved in most and reversed in about half; platelets, which tracked the outcome, improved in 2 of 14. Windows are $-14$ to $-1$, 0--2, 3--7, 8--14 and 15--30 days. Antipyretics, corticosteroids, sedation and ventilator settings act on these variables and are not adjusted for; no causal claim is made (Supplementary Methods).}
   \label{fig:ed3}
 \end{figure}
 

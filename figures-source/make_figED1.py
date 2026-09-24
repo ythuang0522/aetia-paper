@@ -8,8 +8,7 @@ differ only in where their adjudication is stored and how their records were ass
 matter of data provenance and belongs in Methods, not in the skeleton of the diagram.
 
 Counts from Multimodal-Diagnosis-Model/docs/FRONTEND.md, docs/COHORT_VALIDATION.json and
-docs/VALIDATION.md (2026-09-18). The 35-patient ICU series comes from the 2026-01-17 talk; its
-overlap with the evaluation cohorts is unconfirmed.
+docs/VALIDATION.md (2026-09-18).
 """
 import sys
 from pathlib import Path
@@ -26,8 +25,8 @@ GRAY_E, GRAY_F = "#cbd5e1", "#f8fafc"
 AMBER_E, AMBER_F = "#fcd34d", "#fffbeb"
 FS = 13
 
-SPINE_X, SPINE_W = 250, 410          # the pooled flow
-EXCL_X, EXCL_W = 706, 258            # exclusions branch right
+SPINE_X, SPINE_W = 130, 410          # the pooled flow
+EXCL_X, EXCL_W = 586, 258            # exclusions branch right
 
 # title, n, per-site line, note (None for no note)
 NODES = [
@@ -38,7 +37,7 @@ NODES = [
     ("Delivery cohort", "55 patients",
      "KMUH 30  ·  TVGH + TSGH 25", "primary analysis (Fig. 2a,b)", BLUE_E, BLUE_F),
     ("Direct-prompting comparison", "41 patients",
-     "KMUH 30  ·  TVGH + TSGH 11", "model comparison (Fig. 3)", BLUE_E, BLUE_F),
+     "KMUH 30  ·  TVGH + TSGH 11", "model comparison (Fig. 2c,d)", BLUE_E, BLUE_F),
 ]
 # (n, reasons) aligned to the gap below node i
 EXCLUSIONS = [
@@ -72,10 +71,8 @@ def main() -> None:
     svg = SVG(W, H)
     node_h, gap = 62, 74
     y = 34
-    centres = []
     for i, (title, count, sites, note, edge, fill) in enumerate(NODES):
         node(svg, SPINE_X, y, SPINE_W, node_h, title, count, sites, note, edge, fill)
-        centres.append(y)
         if i < len(NODES) - 1:
             ymid = y + node_h + gap / 2
             svg.line(SPINE_X + SPINE_W / 2, y + node_h, SPINE_X + SPINE_W / 2, y + node_h + gap - 8,
@@ -90,14 +87,6 @@ def main() -> None:
                     f'L{EXCL_X - 10},{ymid + 4.5} Z" fill="{INK2}"/>')
         y += node_h + gap
     y -= gap - 26
-
-    # the earlier series is not part of this flow: shown detached, to the left of the delivery node
-    sy = centres[1] + 4
-    svg.rect(30, sy, 190, 76, GRAY_F, stroke=GRAY_E, sw=1.2, rx=6, extra='stroke-dasharray="5 4"')
-    svg.text(44, sy + 22, "Earlier ICU series", size=FS - 1, fill=INK, weight="bold")
-    svg.text(44, sy + 40, "35 patients, KMUH", size=FS - 2, fill=INK2)
-    svg.text(44, sy + 56, "organism burden (Fig. 2c,d)", size=FS - 2, fill=MUTED)
-    svg.text(44, sy + 70, "overlap with the 55 unconfirmed", size=FS - 3, fill=MUTED)
 
     fy = y + 4
     for line in (
